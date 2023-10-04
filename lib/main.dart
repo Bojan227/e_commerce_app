@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
+import 'package:ecommerce_app/presentation/ui/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           CustomTextTheme.textTheme
         ],
       ),
-      home: Container(),
+      home: const MainScreen(),
     );
   }
 }
