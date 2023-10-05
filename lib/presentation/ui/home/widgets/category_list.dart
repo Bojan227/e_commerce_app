@@ -14,6 +14,12 @@ class CategoryList extends StatelessWidget {
           CategoryItem(
               label: 'living room', image: 'lib/core/assets/category_2.png'),
           CategoryItem(
+              label: 'kitchen', image: 'lib/core/assets/category_3.png'),
+          CategoryItem(
+              label: 'bedroom', image: 'lib/core/assets/category_1.png'),
+          CategoryItem(
+              label: 'living room', image: 'lib/core/assets/category_2.png'),
+          CategoryItem(
               label: 'kitchen', image: 'lib/core/assets/category_3.png')
         ],
       ),
