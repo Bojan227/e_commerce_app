@@ -23,7 +23,7 @@ class CategoryScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           title,
-          style: textTheme.bodyMedium1.copyWith(color: colorPalette.black),
+          style: textTheme.bodyLarge1.copyWith(color: colorPalette.black),
         ),
       ),
       body: Padding(

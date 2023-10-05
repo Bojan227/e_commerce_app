@@ -17,8 +17,12 @@ class CategoryItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        AutoRouter.of(context).push(PageRouteInfo('CategoryScreen',
-            args: CategoryScreenArgs(title: label)));
+        AutoRouter.of(context).push(
+          PageRouteInfo(
+            'CategoryScreen',
+            args: CategoryScreenArgs(title: label),
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16),
