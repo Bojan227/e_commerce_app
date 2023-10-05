@@ -1,6 +1,7 @@
+import 'package:ecommerce_app/core/router/router_config.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
+import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/ui/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,16 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final appRouter = AppRouter();
+
+    return MaterialApp.router(
+      routerConfig: appRouter.config(),
       title: 'Ulmo E-Commerce',
       theme: ThemeData.light().copyWith(
         useMaterial3: true,
         extensions: <ThemeExtension<dynamic>>[
           ColorPalette.light,
-          CustomTextTheme.textTheme
+          CustomTextTheme.textTheme,
+          MainConfig.mainConfig
         ],
       ),
-      home: const MainScreen(),
     );
   }
 }

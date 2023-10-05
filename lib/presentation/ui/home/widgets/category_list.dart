@@ -10,17 +10,17 @@ class CategoryList extends StatelessWidget {
       child: Column(
         children: [
           CategoryItem(
-              label: 'bedroom', image: 'lib/core/assets/category_1.png'),
+              label: 'Bedroom', image: 'lib/core/assets/category_1.png'),
           CategoryItem(
-              label: 'living room', image: 'lib/core/assets/category_2.png'),
+              label: 'Living room', image: 'lib/core/assets/category_2.png'),
           CategoryItem(
-              label: 'kitchen', image: 'lib/core/assets/category_3.png'),
+              label: 'Kitchen', image: 'lib/core/assets/category_3.png'),
           CategoryItem(
-              label: 'bedroom', image: 'lib/core/assets/category_1.png'),
+              label: 'Bedroom', image: 'lib/core/assets/category_1.png'),
           CategoryItem(
-              label: 'living room', image: 'lib/core/assets/category_2.png'),
+              label: 'Living room', image: 'lib/core/assets/category_2.png'),
           CategoryItem(
-              label: 'kitchen', image: 'lib/core/assets/category_3.png')
+              label: 'Kitchen', image: 'lib/core/assets/category_3.png')
         ],
       ),
     );

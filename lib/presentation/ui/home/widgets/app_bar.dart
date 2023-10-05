@@ -11,6 +11,7 @@ class AppBarWidget extends StatelessWidget {
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
     return SliverAppBar(
+      surfaceTintColor: colorPalette.white,
       pinned: true,
       expandedHeight: 158,
       bottom: PreferredSize(
