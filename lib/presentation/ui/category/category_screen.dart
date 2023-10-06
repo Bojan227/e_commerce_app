@@ -20,6 +20,7 @@ class CategoryScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: colorPalette.white,
         centerTitle: true,
         title: Text(
           title,

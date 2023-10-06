@@ -192,7 +192,7 @@ class CustomTextTheme extends ThemeExtension<CustomTextTheme> {
       bodyLarge1: labelTextStyle(16.0, FontWeight.w500),
       bodyMedium1: labelTextStyle(16.0, FontWeight.w400),
       bodySmall1: labelTextStyle(16.0, FontWeight.w300),
-      bodyLarge2: labelTextStyle(14.0, FontWeight.w700),
+      bodyLarge2: labelTextStyle(14.0, FontWeight.w500),
       bodyMedium2: labelTextStyle(14.0, FontWeight.w400),
       bodySmall2: labelTextStyle(14.0, FontWeight.w300),
       bodyLarge3: labelTextStyle(12.0, FontWeight.w700),

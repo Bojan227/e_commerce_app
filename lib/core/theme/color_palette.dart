@@ -179,7 +179,7 @@ class ColorPalette extends ThemeExtension<ColorPalette> {
     grey200: colorFromHex("#EEEEEE"),
     grey100: colorFromHex("#F5F5F5"),
     yellow500: colorFromHex("#FFC107"),
-    yellow400: colorFromHex("#FFCA28"),
+    yellow400: colorFromHex("#FEE440"),
     yellow300: colorFromHex("#FFD54F"),
     yellow200: colorFromHex("#FFE082"),
     yellow100: colorFromHex("#FFECB3"),

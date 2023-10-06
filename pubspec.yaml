@@ -77,6 +77,12 @@ flutter:
     - lib/core/assets/citem_1.png
     - lib/core/assets/citem_2.png
     - lib/core/assets/citem_3.png
+    - lib/core/assets/sort_shape.png
+    - lib/core/assets/filter_shape.png
+    - lib/core/assets/product_1.png
+    - lib/core/assets/product_2.png
+    - lib/core/assets/product_3.png
+    - lib/core/assets/product_4.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
