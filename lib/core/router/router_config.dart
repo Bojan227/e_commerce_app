@@ -13,7 +13,8 @@ class AppRouter extends $AppRouter {
               page: CategoryScreen.page,
               path: 'category',
             ),
-            AutoRoute(page: CatalogScreen.page, path: 'catalog')
+            AutoRoute(page: CatalogScreen.page, path: 'catalog'),
+            AutoRoute(page: ProductScreen.page, path: 'product/:id')
           ]),
           AutoRoute(
             page: BagScreen.page,
