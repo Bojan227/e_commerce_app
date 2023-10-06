@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_app/core/router/router_config.gr.dart';
 import 'package:ecommerce_app/presentation/ui/catalog/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 
@@ -69,12 +71,22 @@ class ProductGrid extends StatelessWidget {
               mainAxisSpacing: 24,
               childAspectRatio: 2.5 / 4),
           itemBuilder: (context, index) {
-            return ProductCard(
-              image: products[index]['image'],
-              price: products[index]['price'],
-              description: products[index]['description'],
-              badge: products[index]['badge'],
-              badgeLabel: products[index]['badgeLabel'],
+            return GestureDetector(
+              onTap: () {
+                AutoRouter.of(context).push(
+                  PageRouteInfo(
+                    'ProductScreen',
+                    args: ProductScreenArgs(productId: index.toString()),
+                  ),
+                );
+              },
+              child: ProductCard(
+                image: products[index]['image'],
+                price: products[index]['price'],
+                description: products[index]['description'],
+                badge: products[index]['badge'],
+                badgeLabel: products[index]['badgeLabel'],
+              ),
             );
           },
         ),
