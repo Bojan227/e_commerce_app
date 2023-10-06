@@ -17,6 +17,7 @@ class SearchBarWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(color: colorPalette.grey100),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.search,
@@ -26,21 +27,19 @@ class SearchBarWidget extends StatelessWidget {
               width: 16,
             ),
             Expanded(
-              child:
-                  //     TextFormField(
-                  //   decoration: InputDecoration(
-                  //     border: OutlineInputBorder(
-                  //         borderSide:
-                  //             BorderSide(color: colorPalette.grey100, width: 1)),
-                  //     hintText: 'Search',
-                  //     hintStyle:
-                  //         textTheme.bodyMedium1.copyWith(color: colorPalette.grey500),
-                  //   ),
-                  // )
-                  Text(
-                "Search",
+              child: TextFormField(
                 style: textTheme.bodyMedium1.copyWith(
                   color: colorPalette.grey500,
+                ),
+                cursorColor: colorPalette.grey500,
+                decoration: InputDecoration(
+                  focusColor: colorPalette.grey100,
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  hintText: 'Search',
+                  hintStyle: textTheme.bodyMedium1.copyWith(
+                    color: colorPalette.grey500,
+                  ),
                 ),
               ),
             )
