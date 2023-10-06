@@ -25,6 +25,7 @@ class CategoryItem extends StatelessWidget {
       },
       child: SizedBox(
         height: 64,
+        width: double.infinity,
         child: Row(
           children: [
             ClipRRect(
