@@ -32,7 +32,7 @@ class StoryItem extends StatelessWidget {
             bottom: 8,
             child: Text(
               text,
-              style: textTheme.bodyMedium3.copyWith(color: colorPalette.white),
+              style: textTheme.bodyLarge3.copyWith(color: colorPalette.white),
             ),
           ),
         ],

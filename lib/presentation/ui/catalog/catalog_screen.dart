@@ -29,7 +29,7 @@ class CatalogScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: mainConfig.screenPadding),
+        padding: EdgeInsets.symmetric(horizontal: mainConfig.padding1),
         child: const Column(
           children: [
             SearchBarWidget(),

@@ -28,13 +28,13 @@ class CategoryScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: mainConfig.screenPadding),
+        padding: EdgeInsets.symmetric(horizontal: mainConfig.padding1),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SearchBarWidget(),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
+              padding: EdgeInsets.symmetric(vertical: mainConfig.padding1),
               child: Text(
                 'categories',
                 style: textTheme.titleLarge.copyWith(color: colorPalette.black),

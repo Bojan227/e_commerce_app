@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/button.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/color_chips.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/description_widget.dart';
@@ -12,14 +13,16 @@ class ProductInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mainConfig = Theme.of(context).extension<MainConfig>()!;
+
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
+      padding: EdgeInsets.symmetric(vertical: mainConfig.padding4),
       child: Column(
         children: [
           DescriptionWidget(price: price, description: description),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 24),
-            child: ColorChips(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: mainConfig.padding4),
+            child: const ColorChips(),
           ),
           const ButtonWidget()
         ],

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
+import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +10,13 @@ class SearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
+    final mainConfig = Theme.of(context).extension<MainConfig>()!;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      padding: EdgeInsets.symmetric(vertical: mainConfig.padding2),
       child: Container(
         height: 64,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: mainConfig.padding1),
         decoration: BoxDecoration(color: colorPalette.grey100),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

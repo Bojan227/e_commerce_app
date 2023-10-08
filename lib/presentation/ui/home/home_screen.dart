@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               (context, index) {
                 return Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: mainConfig.screenPadding,
+                    horizontal: mainConfig.padding1,
                   ),
                   child: const Column(
                     children: [

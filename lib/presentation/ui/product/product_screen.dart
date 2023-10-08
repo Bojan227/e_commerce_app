@@ -24,8 +24,8 @@ class ProductScreen extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 return Container(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: mainConfig.screenPadding),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: mainConfig.padding1),
                   decoration: BoxDecoration(color: colorPaletter.grey100),
                   child: const ProductInfo(
                       price: 150.00,

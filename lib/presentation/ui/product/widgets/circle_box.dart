@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
+import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:flutter/material.dart';
 
 class CircleBox extends StatelessWidget {
@@ -9,12 +10,14 @@ class CircleBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mainConfig = Theme.of(context).extension<MainConfig>()!;
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        padding: EdgeInsets.symmetric(
+            vertical: mainConfig.padding3, horizontal: mainConfig.padding1),
         child: Container(
           width: 36,
           height: 36,
