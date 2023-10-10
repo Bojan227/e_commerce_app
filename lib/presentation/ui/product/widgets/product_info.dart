@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/button.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/color_chips.dart';
@@ -14,6 +15,7 @@ class ProductInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainConfig = Theme.of(context).extension<MainConfig>()!;
+    final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return Padding(
       padding: EdgeInsets.symmetric(vertical: mainConfig.padding4),
@@ -24,7 +26,16 @@ class ProductInfo extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: mainConfig.padding4),
             child: const ColorChips(),
           ),
-          const ButtonWidget()
+          CustomIconButton(
+            onPress: () {},
+            label: 'Add to bag',
+            bgColor: colorPalette.yellow400,
+            titleColor: colorPalette.black,
+            icon: Image.asset(
+              'lib/core/assets/bag.png',
+              color: colorPalette.black,
+            ),
+          )
         ],
       ),
     );
