@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/presentation/ui/catalog/widgets/action_widget.dart';
 import 'package:ecommerce_app/presentation/ui/catalog/widgets/sort_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,13 @@ class ActionRow extends StatelessWidget {
           ),
           ActionWidget(
             title: 'Filter',
-            onPressed: () {},
+            onPressed: () {
+              AutoRouter.of(context).push(
+                const PageRouteInfo(
+                  'FilterNavWrapper',
+                ),
+              );
+            },
             shape: 'lib/core/assets/filter_shape.png',
           )
         ],

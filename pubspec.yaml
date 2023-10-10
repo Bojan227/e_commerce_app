@@ -85,7 +85,6 @@ flutter:
     - lib/core/assets/product_4.png
     - lib/core/assets/main_product_1.png
     - lib/core/assets/page_controll.png
-    - lib/core/assets/ulmo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

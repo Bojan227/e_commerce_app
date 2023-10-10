@@ -19,7 +19,14 @@ class AppRouter extends $AppRouter {
           AutoRoute(
             page: BagScreen.page,
             path: 'bag',
-          )
+          ),
         ]),
+        AutoRoute(
+          page: FilterNavWrapper.page,
+          children: [
+            AutoRoute(page: FilterScreen.page, initial: true),
+            AutoRoute(page: FilterOptionsScreen.page)
+          ],
+        ),
       ];
 }
