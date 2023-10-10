@@ -18,30 +18,33 @@ class ActionWidget extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
-    return Container(
-      width: 164,
-      height: 36,
-      decoration: BoxDecoration(
-        color: colorPalette.grey100,
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: textTheme.bodyLarge2.copyWith(color: colorPalette.black),
-          ),
-          const SizedBox(
-            width: 4,
-          ),
-          Image.asset(
-            shape,
-            width: 18,
-            height: 18,
-            color: colorPalette.black,
-          )
-        ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: 164,
+        height: 36,
+        decoration: BoxDecoration(
+          color: colorPalette.grey100,
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              title,
+              style: textTheme.bodyLarge2.copyWith(color: colorPalette.black),
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            Image.asset(
+              shape,
+              width: 18,
+              height: 18,
+              color: colorPalette.black,
+            )
+          ],
+        ),
       ),
     );
   }

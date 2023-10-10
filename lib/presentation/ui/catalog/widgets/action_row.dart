@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/presentation/ui/catalog/widgets/action_widget.dart';
+import 'package:ecommerce_app/presentation/ui/catalog/widgets/sort_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class ActionRow extends StatelessWidget {
@@ -13,7 +14,19 @@ class ActionRow extends StatelessWidget {
         children: [
           ActionWidget(
             title: 'Sort',
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                isDismissible: false,
+                context: context,
+                builder: (context) {
+                  return const FractionallySizedBox(
+                    heightFactor: 0.6,
+                    child: SortBottomSheet(),
+                  );
+                },
+              );
+            },
             shape: 'lib/core/assets/sort_shape.png',
           ),
           ActionWidget(
