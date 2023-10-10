@@ -14,9 +14,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appRouter = AppRouter();
-
     return MaterialApp.router(
-      routerConfig: appRouter.config(),
+      routerConfig: appRouter.config(
+          // deepLinkBuilder: (deepLink) {
+
+          //   if (deepLink.path.startsWith('/product')) {
+          //     print(deepLink.path);
+          //     return DeepLink.single(
+          //       const PageRouteInfo(
+          //         'ProductScreen',
+          //         args: ProductScreenArgs(productId: '1'),
+          //       ),
+          //     );
+          //   } else {
+          //     return const DeepLink.path('/');
+          //   }
+          // },
+          ),
       title: 'Ulmo E-Commerce',
       theme: ThemeData.light().copyWith(
         useMaterial3: true,

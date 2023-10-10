@@ -7,7 +7,7 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: MainScreen.page, path: '/', children: [
-          AutoRoute(page: HomeNavWrapper.page, children: [
+          AutoRoute(page: HomeNavWrapper.page, path: '', children: [
             AutoRoute(page: HomeScreen.page, path: 'home', initial: true),
             AutoRoute(
               page: CategoryScreen.page,
@@ -25,7 +25,7 @@ class AppRouter extends $AppRouter {
           page: FilterNavWrapper.page,
           children: [
             AutoRoute(page: FilterScreen.page, initial: true),
-            AutoRoute(page: FilterOptionsScreen.page)
+            AutoRoute(page: FilterOptionsScreen.page, path: 'options')
           ],
         ),
       ];
