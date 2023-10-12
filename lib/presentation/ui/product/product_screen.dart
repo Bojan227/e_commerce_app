@@ -14,7 +14,7 @@ class ProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainConfig = Theme.of(context).extension<MainConfig>()!;
-    final colorPaletter = Theme.of(context).extension<ColorPalette>()!;
+    final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return Scaffold(
       body: CustomScrollView(
@@ -26,7 +26,7 @@ class ProductScreen extends StatelessWidget {
                 return Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: mainConfig.padding1),
-                  decoration: BoxDecoration(color: colorPaletter.grey100),
+                  decoration: BoxDecoration(color: colorPalette.grey100),
                   child: const ProductInfo(
                       price: 150.00,
                       description:

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/story_item.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,14 @@ class StoriesList extends StatelessWidget {
           child: Row(
             children: [
               for (Map<String, dynamic> story in stories)
-                StoryItem(image: story['image'], text: story['text'])
+                GestureDetector(
+                    onTap: () {
+                      AutoRouter.of(context).push(
+                        const PageRouteInfo('StoryScreen'),
+                      );
+                    },
+                    child:
+                        StoryItem(image: story['image'], text: story['text']))
             ],
           ),
         ));

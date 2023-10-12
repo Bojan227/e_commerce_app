@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
-import 'package:ecommerce_app/presentation/ui/product/widgets/circle_box.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/circle_box.dart';
 import 'package:flutter/material.dart';
 
 class ProductAppBar extends StatelessWidget {
@@ -36,6 +36,7 @@ class ProductAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleBox(
+            boxColor: colorPalette.white,
             icon: Icon(
               Icons.arrow_back,
               color: colorPalette.black,
@@ -45,6 +46,7 @@ class ProductAppBar extends StatelessWidget {
             },
           ),
           CircleBox(
+            boxColor: colorPalette.white,
             icon: Icon(
               Icons.favorite,
               color: colorPalette.black,
