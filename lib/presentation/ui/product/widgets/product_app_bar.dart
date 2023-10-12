@@ -40,7 +40,9 @@ class ProductAppBar extends StatelessWidget {
               Icons.arrow_back,
               color: colorPalette.black,
             ),
-            onTap: () => AutoRouter.of(context).pop(),
+            onTap: () {
+              AutoRouter.of(context).pop();
+            },
           ),
           CircleBox(
             icon: Icon(
