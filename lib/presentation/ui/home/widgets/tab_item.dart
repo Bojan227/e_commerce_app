@@ -12,7 +12,7 @@ class TabItem extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 31, vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       child: Image(
         image: AssetImage(imagePath),
         width: 32,

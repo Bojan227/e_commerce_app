@@ -72,7 +72,7 @@ class ProductGrid extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 15,
               mainAxisSpacing: 24,
-              childAspectRatio: 2.5 / 4),
+              childAspectRatio: 2.3 / 4),
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
