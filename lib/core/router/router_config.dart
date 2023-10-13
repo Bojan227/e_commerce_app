@@ -17,7 +17,6 @@ class AppRouter extends $AppRouter {
                 path: 'category',
               ),
               AutoRoute(page: CatalogScreen.page, path: 'catalog'),
-              AutoRoute(page: ProductScreen.page, path: 'product/:id'),
             ],
           ),
           AutoRoute(
@@ -28,6 +27,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           page: StoryScreen.page,
         ),
+        AutoRoute(page: ProductScreen.page, path: '/product/:id'),
         AutoRoute(
           page: FilterNavWrapper.page,
           children: [
