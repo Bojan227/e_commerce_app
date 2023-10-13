@@ -5,39 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 final stories = [0, 1, 2];
 
-class TimelineRow extends StatefulWidget {
-  const TimelineRow({super.key});
+class TimelineRow extends StatelessWidget {
+  final AnimationController controller;
 
-  @override
-  State<TimelineRow> createState() => _TimelineRowState();
-}
-
-class _TimelineRowState extends State<TimelineRow>
-    with TickerProviderStateMixin {
-  late AnimationController controller;
-
-  @override
-  void initState() {
-    controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 5),
-    )..addListener(() {
-        setState(() {});
-      });
-
-    controller.forward();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  void restartController() {
-    controller.forward(from: 0);
-  }
+  const TimelineRow({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +20,7 @@ class _TimelineRowState extends State<TimelineRow>
           } else {
             context.read<StoryCounterCubit>().initTimer(5);
           }
-          restartController();
+          controller.forward(from: 0);
         }
       },
       builder: (context, state) {
@@ -57,12 +28,10 @@ class _TimelineRowState extends State<TimelineRow>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             for (int index = 0; index < stories.length; index += 1)
-              GestureDetector(
-                child: TimelineWidget(
-                  controller: controller,
-                  isStoryActive: index == state.currentIndex,
-                  isStoryShown: index < state.currentIndex,
-                ),
+              TimelineWidget(
+                controller: controller,
+                isStoryActive: index == state.currentIndex,
+                isStoryShown: index < state.currentIndex,
               ),
           ],
         );

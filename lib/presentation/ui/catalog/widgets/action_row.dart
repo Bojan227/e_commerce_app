@@ -13,33 +13,40 @@ class ActionRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ActionWidget(
-            title: 'Sort',
-            onPressed: () {
-              showModalBottomSheet(
-                isScrollControlled: true,
-                isDismissible: false,
-                context: context,
-                builder: (context) {
-                  return const FractionallySizedBox(
-                    heightFactor: 0.6,
-                    child: SortBottomSheet(),
-                  );
-                },
-              );
-            },
-            shape: 'lib/core/assets/sort_shape.png',
+          Expanded(
+            child: ActionWidget(
+              title: 'Sort',
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  isDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    return const FractionallySizedBox(
+                      heightFactor: 0.6,
+                      child: SortBottomSheet(),
+                    );
+                  },
+                );
+              },
+              shape: 'lib/core/assets/sort_shape.png',
+            ),
           ),
-          ActionWidget(
-            title: 'Filter',
-            onPressed: () {
-              AutoRouter.of(context).push(
-                const PageRouteInfo(
-                  'FilterNavWrapper',
-                ),
-              );
-            },
-            shape: 'lib/core/assets/filter_shape.png',
+          const SizedBox(
+            width: 15,
+          ),
+          Expanded(
+            child: ActionWidget(
+              title: 'Filter',
+              onPressed: () {
+                AutoRouter.of(context).push(
+                  const PageRouteInfo(
+                    'FilterNavWrapper',
+                  ),
+                );
+              },
+              shape: 'lib/core/assets/filter_shape.png',
+            ),
           )
         ],
       ),

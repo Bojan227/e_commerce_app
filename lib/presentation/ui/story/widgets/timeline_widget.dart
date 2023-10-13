@@ -18,7 +18,7 @@ class TimelineWidget extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return SizedBox(
-      width: 109,
+      width: 100,
       height: 2,
       child: LinearProgressIndicator(
         value: isStoryActive ? controller.value : 0,

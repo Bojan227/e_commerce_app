@@ -4,7 +4,9 @@ import 'package:ecommerce_app/presentation/ui/story/widgets/timeline_row.dart';
 import 'package:flutter/material.dart';
 
 class StoryContent extends StatelessWidget {
-  const StoryContent({super.key});
+  const StoryContent({super.key, required this.controller});
+
+  final AnimationController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,9 @@ class StoryContent extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          const TimelineRow()
+          TimelineRow(
+            controller: controller,
+          ),
         ],
       ),
     );

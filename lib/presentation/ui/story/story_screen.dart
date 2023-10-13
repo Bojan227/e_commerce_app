@@ -13,8 +13,35 @@ final storyImages = [
 ];
 
 @RoutePage()
-class StoryScreen extends StatelessWidget {
+class StoryScreen extends StatefulWidget {
   const StoryScreen({super.key});
+
+  @override
+  State<StoryScreen> createState() => _StoryScreenState();
+}
+
+class _StoryScreenState extends State<StoryScreen>
+    with TickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 5),
+    )..addListener(() {
+        setState(() {});
+      });
+
+    controller.forward();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +55,23 @@ class StoryScreen extends StatelessWidget {
 
         return Material(
           child: GestureDetector(
-            // onTapDown: (details) {
-            //   double screenWidth = MediaQuery.of(context).size.width;
-            //   double tapX = details.globalPosition.dx;
-            //   double edgeThreshold = screenWidth / 2;
+            onTapDown: (details) {
+              double screenWidth = MediaQuery.of(context).size.width;
+              double tapX = details.globalPosition.dx;
+              double edgeThreshold = screenWidth / 2;
+              context.read<StoryCounterCubit>().cancelTimer();
 
-            //   if (tapX < edgeThreshold) {
-            //     context.read<StoryCounterCubit>().decrementIndex();
-            //   } else if (tapX > (screenWidth - edgeThreshold)) {
-            //     if (currentIndex + 1 == storyImages.length) return;
-            //     context.read<StoryCounterCubit>().incrementIndex();
-            //   }
-            // },
+              context.read<StoryCounterCubit>().initTimer(5);
+              context.read<StoryCounterCubit>().updateIndex(currentIndex);
+
+              if (tapX < edgeThreshold) {
+                context.read<StoryCounterCubit>().decrementIndex();
+              } else if (tapX > (screenWidth - edgeThreshold)) {
+                if (currentIndex + 1 == storyImages.length) return;
+                context.read<StoryCounterCubit>().incrementIndex();
+              }
+              controller.forward(from: 0);
+            },
             child: Stack(
               children: [
                 Image.asset(
@@ -60,11 +92,13 @@ class StoryScreen extends StatelessWidget {
                     boxColor: colorPalette.white.withOpacity(0.7),
                   ),
                 ),
-                const Positioned(
+                Positioned(
                   left: 0,
                   right: 0,
                   bottom: 16,
-                  child: StoryContent(),
+                  child: StoryContent(
+                    controller: controller,
+                  ),
                 ),
               ],
             ),

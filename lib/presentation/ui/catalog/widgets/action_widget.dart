@@ -21,7 +21,6 @@ class ActionWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: 164,
         height: 36,
         decoration: BoxDecoration(
           color: colorPalette.grey100,
