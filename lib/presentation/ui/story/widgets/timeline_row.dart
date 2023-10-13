@@ -14,13 +14,15 @@ class TimelineRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<StoryCounterCubit, StoryCounterState>(
       listener: (context, state) {
-        if (!state.timer!.isActive) {
-          if (stories.length == state.currentIndex + 1) {
-            context.read<StoryCounterCubit>().cancelTimer();
-          } else {
-            context.read<StoryCounterCubit>().initTimer(5);
-          }
+        if (stories.length <= state.currentIndex + 1) {
+          context.read<StoryCounterCubit>().cancelTimer();
           controller.forward(from: 0);
+        } else {
+          if (!state.timer!.isActive) {
+            context.read<StoryCounterCubit>().initTimer(5);
+
+            controller.forward(from: 0);
+          }
         }
       },
       builder: (context, state) {
