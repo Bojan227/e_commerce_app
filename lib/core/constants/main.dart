@@ -4,3 +4,5 @@ final List<String> tabAssets = [
   'lib/core/assets/heart.png',
   'lib/core/assets/user.png'
 ];
+
+const int storyDuration = 5;

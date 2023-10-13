@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_app/core/constants/main.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/presentation/blocs/story_counter/story_counter_cubit.dart';
 import 'package:ecommerce_app/presentation/ui/story/widgets/story_content.dart';
@@ -28,7 +29,7 @@ class _StoryScreenState extends State<StoryScreen>
   void initState() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: storyDuration),
     )..addListener(() {
         setState(() {});
       });
@@ -48,7 +49,7 @@ class _StoryScreenState extends State<StoryScreen>
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return BlocProvider(
-      create: (context) => StoryCounterCubit()..initTimer(5),
+      create: (context) => StoryCounterCubit()..initTimer(storyDuration),
       child: Builder(builder: (context) {
         final int currentIndex =
             context.watch<StoryCounterCubit>().state.currentIndex;
@@ -61,7 +62,7 @@ class _StoryScreenState extends State<StoryScreen>
               double edgeThreshold = screenWidth / 2;
               context.read<StoryCounterCubit>().cancelTimer();
 
-              context.read<StoryCounterCubit>().initTimer(5);
+              context.read<StoryCounterCubit>().initTimer(storyDuration);
               context.read<StoryCounterCubit>().updateIndex(currentIndex);
 
               if (tapX < edgeThreshold) {

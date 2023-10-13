@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/constants/main.dart';
 import 'package:ecommerce_app/presentation/blocs/story_counter/story_counter_cubit.dart';
 import 'package:ecommerce_app/presentation/ui/story/widgets/timeline_widget.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class TimelineRow extends StatelessWidget {
           context.read<StoryCounterCubit>().cancelTimer();
         } else {
           if (!state.timer!.isActive) {
-            context.read<StoryCounterCubit>().initTimer(5);
+            context.read<StoryCounterCubit>().initTimer(storyDuration);
           }
         }
         controller.forward(from: 0);
