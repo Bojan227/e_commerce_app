@@ -43,10 +43,14 @@ class ReviewCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      for (int x = reviewConfig['min']!;
-                          x <= reviewConfig['max']!;
-                          x++)
-                        RatingItem(currentRatingValue: userRating, index: x),
+                      for (int index = reviewConfig['min']!;
+                          index <= reviewConfig['max']!;
+                          index++)
+                        RatingItem(
+                          currentRatingValue: userRating,
+                          index: index,
+                          iconSize: 16,
+                        ),
                     ],
                   ),
                   Text(

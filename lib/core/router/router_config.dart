@@ -31,11 +31,19 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           page: StoryScreen.page,
         ),
-        AutoRoute(page: ProductNavWrapper.page, path: '/', children: [
-          AutoRoute(
-              page: ProductScreen.page, path: 'product/:id', initial: true),
-          AutoRoute(page: ReviewScreen.page, path: 'review/:id'),
-        ]),
+        AutoRoute(
+          page: ProductNavWrapper.page,
+          path: '/',
+          children: [
+            AutoRoute(
+                page: ProductScreen.page, path: 'product/:id', initial: true),
+            AutoRoute(
+              page: ReviewScreen.page,
+              path: 'review/:id',
+            ),
+            AutoRoute(page: AddReview.page),
+          ],
+        ),
         AutoRoute(
           page: FilterNavWrapper.page,
           children: [

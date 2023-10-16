@@ -32,9 +32,14 @@ class ReviewScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: Text(
-              'New Review',
-              style: appBarTextStyle,
+            child: GestureDetector(
+              onTap: () {
+                AutoRouter.of(context).push(const PageRouteInfo('AddReview'));
+              },
+              child: Text(
+                'New Review',
+                style: appBarTextStyle,
+              ),
             ),
           ),
         ],
