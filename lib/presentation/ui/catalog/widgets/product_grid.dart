@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ecommerce_app/core/router/router_config.gr.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/presentation/ui/catalog/widgets/product_card.dart';
 import 'package:flutter/material.dart';
@@ -77,9 +76,8 @@ class ProductGrid extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 AutoRouter.of(context).push(
-                  PageRouteInfo(
-                    'ProductScreen',
-                    args: ProductScreenArgs(productId: index.toString()),
+                  const PageRouteInfo(
+                    'ProductNavWrapper',
                   ),
                 );
               },
