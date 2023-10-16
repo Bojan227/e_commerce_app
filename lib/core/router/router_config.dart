@@ -23,11 +23,16 @@ class AppRouter extends $AppRouter {
             page: BagScreen.page,
             path: 'bag',
           ),
+          AutoRoute(
+            page: ProfileScreen.page,
+            path: 'profile',
+          ),
         ]),
         AutoRoute(
           page: StoryScreen.page,
         ),
         AutoRoute(page: ProductScreen.page, path: '/product/:id'),
+        AutoRoute(page: ReviewScreen.page, path: '/review/:id'),
         AutoRoute(
           page: FilterNavWrapper.page,
           children: [

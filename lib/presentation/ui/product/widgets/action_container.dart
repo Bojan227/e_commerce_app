@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_app/core/router/router_config.gr.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
@@ -31,7 +33,14 @@ class ActionContainer extends StatelessWidget {
             ),
           ),
           ActionItem(
-            onTap: () {},
+            onTap: () {
+              AutoRouter.of(context).push(
+                const PageRouteInfo(
+                  'ReviewScreen',
+                  args: ReviewScreenArgs(productId: '1'),
+                ),
+              );
+            },
             text: "Reviews",
             action: Text(
               '32',
