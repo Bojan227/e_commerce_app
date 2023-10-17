@@ -14,7 +14,7 @@ class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
   @override
   Future<List<ReviewDto>> getReviews(int productId) async {
     final List<Map<String, dynamic>>? data =
-        await sqfHelper.queryByProductId(productId);
+        await sqfHelper.getReviewsByProductId(productId);
 
     if (data == null) throw CacheException();
 
