@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/blocs/rating_cubit/rating_cubit.dart';
+import 'package:ecommerce_app/presentation/blocs/review/rating_cubit/rating_cubit.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/input_field.dart';
 import 'package:ecommerce_app/presentation/ui/review/widgets/add_review_images_container.dart';
 import 'package:ecommerce_app/presentation/ui/review/widgets/rating_container.dart';
