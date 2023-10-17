@@ -1,10 +1,17 @@
+import 'package:ecommerce_app/core/injector/injector.dart';
 import 'package:ecommerce_app/core/router/router_config.dart';
+import 'package:ecommerce_app/core/sqflite/sqflite_helper.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupInjector();
+  final dbHelper = getIt<SqfHelper>();
+  await dbHelper.open();
+
   runApp(const MyApp());
 }
 
