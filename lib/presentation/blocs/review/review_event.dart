@@ -11,3 +11,12 @@ class GetReviews extends ReviewEvent {
   @override
   List<Object?> get props => [productId];
 }
+
+class AddReviewEvent extends ReviewEvent {
+  final NewReview newReview;
+
+  AddReviewEvent({required this.newReview});
+
+  @override
+  List<Object?> get props => [newReview];
+}

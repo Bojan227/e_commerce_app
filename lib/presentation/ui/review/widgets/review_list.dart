@@ -21,7 +21,7 @@ class ReviewList extends StatelessWidget {
               );
             }
 
-            if (state.status == Status.loaded) {
+            if (state.status == Status.failed) {
               return const Center(
                 child: Text('Please try again!'),
               );
@@ -34,22 +34,24 @@ class ReviewList extends StatelessWidget {
                 );
               }
 
-              return Padding(
-                padding: EdgeInsets.symmetric(vertical: mainConfig.padding2),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: state.reviews
-                        .map(
-                          (review) => ReviewCard(
-                            userImage: 'lib/core/assets/user.png',
-                            name: review.user.fullName,
-                            userComment: review.userReview,
-                            userRating: review.rating,
-                            createdAt: review.createdAt.toIso8601String(),
-                            reviewImages: [],
-                          ),
-                        )
-                        .toList(),
+              return Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: mainConfig.padding2),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: state.reviews
+                          .map(
+                            (review) => ReviewCard(
+                              userImage: 'lib/core/assets/user.png',
+                              name: review.user.fullName,
+                              userComment: review.userReview,
+                              userRating: review.rating,
+                              createdAt: review.createdAt.toIso8601String(),
+                              reviewImages: [],
+                            ),
+                          )
+                          .toList(),
+                    ),
                   ),
                 ),
               );
