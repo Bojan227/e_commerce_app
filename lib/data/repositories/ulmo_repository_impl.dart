@@ -40,7 +40,7 @@ class UlmoRepositoryImpl implements UlmoRepository {
   }
 
   @override
-  Future<Either<Failure, int>> addReview(NewReview review) async {
+  Future<Either<Failure, Review>> addReview(NewReview review) async {
     final newReviewDto = NewReviewDto(
         rating: review.rating,
         review: review.userReview,
@@ -48,8 +48,20 @@ class UlmoRepositoryImpl implements UlmoRepository {
         user_id: review.userId,
         product_id: review.productId);
 
-    final reviewId = await ulmoLocalDataSource.addReview(newReviewDto);
+    final reviewDto = await ulmoLocalDataSource.addReview(newReviewDto);
+    final reviewEntity = Review(
+      reviewId: reviewDto.id,
+      rating: reviewDto.rating,
+      userReview: reviewDto.review,
+      reviewImages: [],
+      createdAt: DateTime.parse(reviewDto.createdAt),
+      user: User(
+          userId: reviewDto.user_id,
+          fullName: reviewDto.full_name,
+          phone: reviewDto.phone,
+          email: reviewDto.email),
+    );
 
-    return Right(reviewId);
+    return Right(reviewEntity);
   }
 }

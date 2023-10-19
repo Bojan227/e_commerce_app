@@ -77,55 +77,56 @@ class AddReview extends StatelessWidget {
               ),
             ),
             body: BlocListener<ReviewBloc, ReviewState>(
-              listener: (_, state) {
+              listener: (ctx, state) {
                 if (state.newReviewStatus == Status.loaded) {
-                  context.read<ReviewBloc>().add(
-                        GetReviews(productId: '1'),
-                      );
+                  AutoRouter.of(context).pop();
 
+                  context.read<RatingCubit>().updateRating(0);
                   _formKey.currentState!.reset();
                 }
               },
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: mainConfig.padding1,
-                ),
-                child: Column(
-                  children: [
-                    const RatingContainer(),
-                    Form(
-                      key: _formKey,
-                      child: InputField(
-                        label: 'Your review',
-                        keyboardType: TextInputType.text,
-                        handleInput: (value) => userReview = value,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: mainConfig.padding1,
+                  ),
+                  child: Column(
+                    children: [
+                      const RatingContainer(),
+                      Form(
+                        key: _formKey,
+                        child: InputField(
+                          label: 'Your review',
+                          keyboardType: TextInputType.text,
+                          handleInput: (value) => userReview = value,
+                        ),
                       ),
-                    ),
-                    const AddReviewImagesContainer(),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    SendReviewButton(
-                      label: newReviewStatus == Status.loading
-                          ? 'Submitting...'
-                          : 'Send review',
-                      bgColor: colorPalette.yellow400,
-                      titleColor: colorPalette.black,
-                      onPress: () {
-                        if (currentRatingValue == 0) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text(
-                                'Enter your star rating',
+                      const AddReviewImagesContainer(),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      SendReviewButton(
+                        label: newReviewStatus == Status.loading
+                            ? 'Submitting...'
+                            : 'Send review',
+                        bgColor: colorPalette.yellow400,
+                        titleColor: colorPalette.black,
+                        onPress: () {
+                          if (currentRatingValue == 0) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                  'Enter your star rating',
+                                ),
                               ),
-                            ),
-                          );
-                        } else {
-                          handleSubmit(context, currentRatingValue);
-                        }
-                      },
-                    )
-                  ],
+                            );
+                          } else {
+                            handleSubmit(context, currentRatingValue);
+                          }
+                        },
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),

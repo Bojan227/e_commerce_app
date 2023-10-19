@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/error/failure.dart';
 import 'package:ecommerce_app/domain/entities/new_review.dart';
+import 'package:ecommerce_app/domain/entities/review_entity.dart';
 
 import 'package:ecommerce_app/domain/repositories/ulmo_repository.dart';
 
@@ -9,7 +10,7 @@ class AddReviewUseCase {
 
   AddReviewUseCase({required this.ulmoRepository});
 
-  Future<Either<Failure, int>> call(NewReview review) async {
+  Future<Either<Failure, Review>> call(NewReview review) async {
     return await ulmoRepository.addReview(review);
   }
 }

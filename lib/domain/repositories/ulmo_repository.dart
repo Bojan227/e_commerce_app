@@ -5,5 +5,5 @@ import 'package:ecommerce_app/domain/entities/review_entity.dart';
 
 abstract class UlmoRepository {
   Future<Either<Failure, List<Review>>> getReviews(int productId);
-  Future<Either<Failure, int>> addReview(NewReview review);
+  Future<Either<Failure, Review>> addReview(NewReview review);
 }

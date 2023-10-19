@@ -5,7 +5,7 @@ import 'package:ecommerce_app/data/models/review_dto.dart';
 
 abstract class UlmoLocalDataSource {
   Future<List<ReviewDto>> getReviews(int productId);
-  Future<int> addReview(NewReviewDto review);
+  Future<ReviewDto> addReview(NewReviewDto review);
 }
 
 class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
@@ -27,11 +27,17 @@ class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
   }
 
   @override
-  Future<int> addReview(NewReviewDto review) async {
-    final res = await sqfHelper.addReview(review.toJson());
+  Future<ReviewDto> addReview(NewReviewDto review) async {
+    final reviewId = await sqfHelper.addReview(review.toJson());
 
-    if (res == null) throw CacheException();
+    if (reviewId == null) throw CacheException();
 
-    return res;
+    final reviewList = await sqfHelper.getReviewByReviewId(reviewId);
+
+    if (reviewList == null) throw CacheException();
+
+    final reviewDto = ReviewDto.fromJson(reviewList[0]);
+
+    return reviewDto;
   }
 }
