@@ -15,8 +15,26 @@ class SqfHelper {
       _db = await openDatabase(
         path,
         version: 1,
+        onCreate: (db, version) async {
+          await db.execute(
+            'CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, full_name TEXT UNIQUE, phone TEXT, email TEXT)',
+          );
+
+          await db.execute(
+            'CREATE TABLE IF NOT EXISTS review (id INTEGER PRIMARY KEY AUTOINCREMENT, rating INTEGER, review TEXT, createdAt TEXT, user_id INTEGER, review_images BLOB, product_id INTEGER)',
+          );
+        },
       );
     }
+
+    await _db?.insert(
+        'user',
+        {
+          'full_name': "Erin Mango",
+          "phone": "+38970317455",
+          "email": "erin@gmail.com"
+        },
+        conflictAlgorithm: ConflictAlgorithm.ignore);
   }
 
   Future<List<Map<String, dynamic>>?> getReviewsByProductId(
