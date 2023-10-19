@@ -41,7 +41,7 @@ class AppRouter extends $AppRouter {
               page: ReviewScreen.page,
               path: 'review/:id',
             ),
-            AutoRoute(page: AddReview.page),
+            AutoRoute(page: AddReview.page, path: 'add'),
           ],
         ),
         AutoRoute(

@@ -43,7 +43,12 @@ class SqfHelper {
         'SELECT r.id, r.review, r.rating, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.product_id = $productId ORDER BY r.id desc;');
   }
 
+  Future<List<Map<String, dynamic>>?> getReviewByReviewId(int reviewId) async {
+    return await _db?.rawQuery(
+        'SELECT r.id, r.review, r.rating, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.id = $reviewId;');
+  }
+
   Future<int?> addReview(Map<String, dynamic> review) async {
-    return _db?.insert('review', review);
+    return await _db?.insert('review', review);
   }
 }
