@@ -25,16 +25,16 @@ class SqfHelper {
           );
         },
       );
-    }
 
-    await _db?.insert(
-        'user',
-        {
-          'full_name': "Erin Mango",
-          "phone": "+38970317455",
-          "email": "erin@gmail.com"
-        },
-        conflictAlgorithm: ConflictAlgorithm.ignore);
+      await _db?.insert(
+          'user',
+          {
+            'full_name': "Erin Mango",
+            "phone": "+38970317455",
+            "email": "erin@gmail.com"
+          },
+          conflictAlgorithm: ConflictAlgorithm.ignore);
+    }
   }
 
   Future<List<Map<String, dynamic>>?> getReviewsByProductId(
