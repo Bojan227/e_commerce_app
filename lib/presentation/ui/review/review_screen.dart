@@ -32,6 +32,7 @@ class ReviewScreen extends StatelessWidget {
           GetReviews(productId: productId),
         ),
       child: Scaffold(
+        backgroundColor: colorPalette.white,
         appBar: AppBar(
           backgroundColor: colorPalette.white,
           title: Text(

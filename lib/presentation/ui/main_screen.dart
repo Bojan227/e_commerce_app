@@ -11,7 +11,9 @@ class MainScreen extends StatelessWidget {
     return AutoTabsRouter(
       routes: const [
         PageRouteInfo('HomeNavWrapper'),
-        PageRouteInfo('BagScreen')
+        PageRouteInfo('BagScreen'),
+        PageRouteInfo('ProfileScreen'),
+        PageRouteInfo('ProfileScreen'),
       ],
       transitionBuilder: (context, child, animation) => FadeTransition(
         opacity: animation,

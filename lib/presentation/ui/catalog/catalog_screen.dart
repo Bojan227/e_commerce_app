@@ -20,6 +20,7 @@ class CatalogScreen extends StatelessWidget {
     final mainConfig = Theme.of(context).extension<MainConfig>()!;
 
     return Scaffold(
+      backgroundColor: colorPalette.white,
       appBar: AppBar(
         surfaceTintColor: colorPalette.white,
         centerTitle: true,

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/category_list.dart';
@@ -13,6 +14,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mainConfig = Theme.of(context).extension<MainConfig>()!;
+    final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return Scaffold(
       body: CustomScrollView(
@@ -23,6 +25,7 @@ class HomeScreen extends StatelessWidget {
               childCount: 1,
               (context, index) {
                 return Container(
+                  decoration: BoxDecoration(color: colorPalette.white),
                   padding: EdgeInsets.symmetric(
                     horizontal: mainConfig.padding1,
                   ),

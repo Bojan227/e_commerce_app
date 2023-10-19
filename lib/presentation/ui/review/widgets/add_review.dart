@@ -63,6 +63,7 @@ class AddReview extends StatelessWidget {
           final Status newReviewStatus =
               context.watch<ReviewBloc>().state.newReviewStatus;
           return Scaffold(
+            backgroundColor: colorPalette.white,
             appBar: AppBar(
               centerTitle: true,
               title: Text(

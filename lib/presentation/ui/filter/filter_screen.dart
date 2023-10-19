@@ -21,6 +21,7 @@ class FilterScreen extends StatelessWidget {
         textTheme.bodyLarge1.copyWith(color: colorPalette.black);
 
     return Scaffold(
+      backgroundColor: colorPalette.white,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
