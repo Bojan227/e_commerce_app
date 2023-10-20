@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 final storyImages = [
   'lib/core/assets/story_img.png',
-  'lib/core/assets/story_1.png',
-  'lib/core/assets/story_2.png'
+  'lib/core/assets/main_product_1.png',
+  'lib/core/assets/product_img_2.png'
 ];
 
 @RoutePage()
