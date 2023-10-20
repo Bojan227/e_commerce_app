@@ -50,62 +50,67 @@ class _StoryScreenState extends State<StoryScreen>
 
     return BlocProvider(
       create: (context) => StoryCounterCubit()..initTimer(storyDuration),
-      child: Builder(builder: (context) {
-        final int currentIndex =
-            context.watch<StoryCounterCubit>().state.currentIndex;
+      child: Builder(
+        builder: (context) {
+          return Material(
+            child: BlocBuilder<StoryCounterCubit, StoryCounterState>(
+              builder: (context, state) {
+                return GestureDetector(
+                  onTapDown: (details) {
+                    double screenWidth = MediaQuery.of(context).size.width;
+                    double tapX = details.globalPosition.dx;
+                    double edgeThreshold = screenWidth / 2;
+                    context.read<StoryCounterCubit>().cancelTimer();
 
-        return Material(
-          child: GestureDetector(
-            onTapDown: (details) {
-              double screenWidth = MediaQuery.of(context).size.width;
-              double tapX = details.globalPosition.dx;
-              double edgeThreshold = screenWidth / 2;
-              context.read<StoryCounterCubit>().cancelTimer();
+                    context.read<StoryCounterCubit>().initTimer(storyDuration);
+                    context
+                        .read<StoryCounterCubit>()
+                        .updateIndex(state.currentIndex);
 
-              context.read<StoryCounterCubit>().initTimer(storyDuration);
-              context.read<StoryCounterCubit>().updateIndex(currentIndex);
-
-              if (tapX < edgeThreshold) {
-                context.read<StoryCounterCubit>().decrementIndex();
-              } else if (tapX > (screenWidth - edgeThreshold)) {
-                if (currentIndex + 1 == storyImages.length) return;
-                context.read<StoryCounterCubit>().incrementIndex();
-              }
-              controller.forward(from: 0);
-            },
-            child: Stack(
-              children: [
-                Image.asset(
-                  storyImages[currentIndex],
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                  top: 30,
-                  right: 16,
-                  child: CircleBox(
-                    icon: const Icon(Icons.close),
-                    onTap: () {
-                      AutoRouter.of(context).pop();
-                      context.read<StoryCounterCubit>().cancelTimer();
-                    },
-                    boxColor: colorPalette.white.withOpacity(0.7),
+                    if (tapX < edgeThreshold) {
+                      context.read<StoryCounterCubit>().decrementIndex();
+                    } else if (tapX > (screenWidth - edgeThreshold)) {
+                      if (state.currentIndex + 1 == storyImages.length) return;
+                      context.read<StoryCounterCubit>().incrementIndex();
+                    }
+                    controller.forward(from: 0);
+                  },
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        storyImages[state.currentIndex],
+                        width: double.infinity,
+                        height: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        top: 30,
+                        right: 16,
+                        child: CircleBox(
+                          icon: const Icon(Icons.close),
+                          onTap: () {
+                            AutoRouter.of(context).pop();
+                            context.read<StoryCounterCubit>().cancelTimer();
+                          },
+                          boxColor: colorPalette.white.withOpacity(0.7),
+                        ),
+                      ),
+                      Positioned(
+                        left: 0,
+                        right: 0,
+                        bottom: 16,
+                        child: StoryContent(
+                          controller: controller,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 16,
-                  child: StoryContent(
-                    controller: controller,
-                  ),
-                ),
-              ],
+                );
+              },
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }

@@ -14,7 +14,6 @@ class RatingContainer extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
-    final int currentRatingValue = context.watch<RatingCubit>().state;
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 24),
       child: Column(
@@ -30,10 +29,14 @@ class RatingContainer extends StatelessWidget {
                   onTap: () {
                     context.read<RatingCubit>().updateRating(index);
                   },
-                  child: RatingItem(
-                    currentRatingValue: currentRatingValue,
-                    index: index,
-                    iconSize: 32,
+                  child: BlocBuilder<RatingCubit, int>(
+                    builder: (context, state) {
+                      return RatingItem(
+                        currentRatingValue: state,
+                        index: index,
+                        iconSize: 32,
+                      );
+                    },
                   ),
                 ),
             ],
@@ -41,11 +44,15 @@ class RatingContainer extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          Text(
-            reviewStates[currentRatingValue],
-            style: textTheme.bodyLarge1.copyWith(
-              color: colorPalette.grey500,
-            ),
+          BlocBuilder<RatingCubit, int>(
+            builder: (context, state) {
+              return Text(
+                reviewStates[state],
+                style: textTheme.bodyLarge1.copyWith(
+                  color: colorPalette.grey500,
+                ),
+              );
+            },
           ),
         ],
       ),
