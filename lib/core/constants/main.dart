@@ -8,6 +8,7 @@ final List<String> tabAssets = [
 const int storyDuration = 5;
 
 Map<String, int> reviewConfig = {'min': 1, 'max': 5};
+int numOfProductPageImages = 5;
 
 final List<String> reviewStates = [
   'Please add your review!',

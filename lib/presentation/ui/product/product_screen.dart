@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
+import 'package:ecommerce_app/presentation/blocs/product/cubit/product_images_controller_cubit.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/action_container.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/product_app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/product_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class ProductScreen extends StatelessWidget {
@@ -20,7 +22,10 @@ class ProductScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          const ProductAppBar(),
+          BlocProvider(
+            create: (context) => ProductImagesControllerCubit(),
+            child: const ProductAppBar(),
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
