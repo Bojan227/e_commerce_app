@@ -59,9 +59,6 @@ class AddReview extends StatelessWidget {
       ],
       child: Builder(
         builder: (context) {
-          final int currentRatingValue = context.watch<RatingCubit>().state;
-          final Status newReviewStatus =
-              context.watch<ReviewBloc>().state.newReviewStatus;
           return Scaffold(
             backgroundColor: colorPalette.white,
             appBar: AppBar(
@@ -77,7 +74,7 @@ class AddReview extends StatelessWidget {
                 icon: const Icon(Icons.close),
               ),
             ),
-            body: BlocListener<ReviewBloc, ReviewState>(
+            body: BlocConsumer<ReviewBloc, ReviewState>(
               listener: (ctx, state) {
                 if (state.newReviewStatus == Status.loaded) {
                   AutoRouter.of(context).pop();
@@ -86,7 +83,7 @@ class AddReview extends StatelessWidget {
                   _formKey.currentState!.reset();
                 }
               },
-              child: SingleChildScrollView(
+              builder: (context, state) => SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: mainConfig.padding1,
@@ -106,24 +103,28 @@ class AddReview extends StatelessWidget {
                       const SizedBox(
                         height: 24,
                       ),
-                      SendReviewButton(
-                        label: newReviewStatus == Status.loading
-                            ? 'Submitting...'
-                            : 'Send review',
-                        bgColor: colorPalette.yellow400,
-                        titleColor: colorPalette.black,
-                        onPress: () {
-                          if (currentRatingValue == 0) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                  'Enter your star rating',
-                                ),
-                              ),
-                            );
-                          } else {
-                            handleSubmit(context, currentRatingValue);
-                          }
+                      BlocBuilder<RatingCubit, int>(
+                        builder: (context, ratingState) {
+                          return SendReviewButton(
+                            label: state.newReviewStatus == Status.loading
+                                ? 'Submitting...'
+                                : 'Send review',
+                            bgColor: colorPalette.yellow400,
+                            titleColor: colorPalette.black,
+                            onPress: () {
+                              if (ratingState == 0) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text(
+                                      'Enter your star rating',
+                                    ),
+                                  ),
+                                );
+                              } else {
+                                handleSubmit(context, ratingState);
+                              }
+                            },
+                          );
                         },
                       )
                     ],
