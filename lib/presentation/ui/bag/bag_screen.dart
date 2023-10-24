@@ -4,7 +4,6 @@ import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/ui/bag/widgets/bag_app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/bag/widgets/bag_container.dart';
-import 'package:ecommerce_app/presentation/ui/bag/widgets/empty_bag.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
