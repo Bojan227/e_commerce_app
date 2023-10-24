@@ -16,6 +16,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flash: ^3.0.5+1
   dartz: ^0.10.1
   get_it: ^7.6.4
   json_annotation: ^4.8.1
@@ -95,6 +96,9 @@ flutter:
     - lib/core/assets/review_img_2.png
     - lib/core/assets/product_img_2.png
     - lib/core/assets/surprised.png
+    - lib/core/assets/car.png
+    - lib/core/assets/cart.png
+    - lib/core/assets/pin.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
