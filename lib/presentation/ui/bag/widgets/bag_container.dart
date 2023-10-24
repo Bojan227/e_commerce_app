@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
@@ -36,7 +37,11 @@ class BagContainer extends StatelessWidget {
               label: 'Checkout',
               bgColor: colorPalette.yellow400,
               titleColor: colorPalette.black,
-              onPress: () {},
+              onPress: () {
+                AutoRouter.of(context).push(
+                  const PageRouteInfo('CheckoutScreen'),
+                );
+              },
             ),
           ),
         ],

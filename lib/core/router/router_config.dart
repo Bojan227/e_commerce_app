@@ -45,6 +45,9 @@ class AppRouter extends $AppRouter {
           ],
         ),
         AutoRoute(
+          page: CheckoutScreen.page,
+        ),
+        AutoRoute(
           page: FilterNavWrapper.page,
           children: [
             AutoRoute(page: FilterScreen.page, initial: true),
