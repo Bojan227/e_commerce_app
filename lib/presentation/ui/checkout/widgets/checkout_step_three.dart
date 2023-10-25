@@ -1,11 +1,11 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/ui/widgets/input_field.dart';
+import 'package:ecommerce_app/presentation/ui/checkout/widgets/payment_methods.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 
-class CheckoutStepOne extends StatelessWidget {
-  const CheckoutStepOne({super.key});
+class CheckoutStepThree extends StatelessWidget {
+  const CheckoutStepThree({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,34 +23,17 @@ class CheckoutStepOne extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
-                'contact info',
+                'payment method',
                 style: titleLarge,
               ),
             ),
-            const SizedBox(
-              height: 8,
-            ),
-            InputField(
-              label: 'Full name',
-              keyboardType: TextInputType.text,
-              handleInput: (value) {},
-            ),
-            InputField(
-              label: 'Phone',
-              keyboardType: TextInputType.text,
-              handleInput: (value) {},
-            ),
-            InputField(
-              label: 'Email',
-              keyboardType: TextInputType.emailAddress,
-              handleInput: (value) {},
-            ),
+            const PaymentMethods(),
           ],
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
           child: CustomTextButton(
-            label: 'Continue',
+            label: 'Pay \$420,50',
             bgColor: colorPalette.yellow400,
             titleColor: colorPalette.black,
             onPress: () {},

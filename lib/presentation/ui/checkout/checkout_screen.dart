@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
+import 'package:ecommerce_app/presentation/ui/checkout/widgets/checkout_step_one.dart';
+import 'package:ecommerce_app/presentation/ui/checkout/widgets/checkout_step_three.dart';
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/checkout_step_two.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class CheckoutScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(
           horizontal: mainConfig.padding1,
         ),
-        child: const CheckoutStepTwo(),
+        child: const CheckoutStepThree(),
       ),
     );
   }

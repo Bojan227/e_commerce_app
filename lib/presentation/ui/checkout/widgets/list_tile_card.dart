@@ -3,17 +3,17 @@ import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/checkmark.dart';
 import 'package:flutter/material.dart';
 
-class DeliveryOptionCard extends StatelessWidget {
-  const DeliveryOptionCard(
+class ListTileCard extends StatelessWidget {
+  const ListTileCard(
       {super.key,
       required this.iconPath,
       required this.title,
-      required this.subTitle,
+      this.subTitle,
       required this.isSelected});
 
   final String iconPath;
   final String title;
-  final String subTitle;
+  final String? subTitle;
   final bool isSelected;
 
   @override
@@ -30,10 +30,13 @@ class DeliveryOptionCard extends StatelessWidget {
           title,
           style: textTheme.bodyMedium1.copyWith(color: colorPalette.black),
         ),
-        subtitle: Text(
-          subTitle,
-          style: textTheme.bodyMedium2.copyWith(color: colorPalette.grey500),
-        ),
+        subtitle: subTitle != null
+            ? Text(
+                subTitle!,
+                style:
+                    textTheme.bodyMedium2.copyWith(color: colorPalette.grey500),
+              )
+            : null,
         trailing: isSelected
             ? const CheckMarkWidget()
             : Container(

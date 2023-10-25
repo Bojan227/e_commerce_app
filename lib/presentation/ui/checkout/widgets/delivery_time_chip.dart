@@ -25,7 +25,9 @@ class DeliveryTimeChip extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected ? colorPalette.grey100 : colorPalette.white,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(width: 1, color: colorPalette.grey300),
+          border: isSelected
+              ? const Border()
+              : Border.all(width: 1, color: colorPalette.grey300),
         ),
         child: Center(
           child: Text(
