@@ -5,7 +5,8 @@ import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/ui/bag/widgets/bag_products_list.dart';
 import 'package:ecommerce_app/presentation/ui/bag/widgets/promo_input.dart';
 import 'package:ecommerce_app/presentation/ui/bag/widgets/total_container.dart';
-import 'package:ecommerce_app/presentation/ui/filter/widgets/custom_button.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
+
 import 'package:flutter/material.dart';
 
 class BagContainer extends StatelessWidget {

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/ui/filter/widgets/custom_button.dart';
 import 'package:ecommerce_app/presentation/ui/filter/widgets/filter_options_list.dart';
 import 'package:ecommerce_app/presentation/ui/filter/widgets/slider.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()

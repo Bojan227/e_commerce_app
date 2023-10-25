@@ -1,6 +1,6 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/ui/filter/widgets/custom_button.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 
 class EmptyBag extends StatelessWidget {
