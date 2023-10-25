@@ -45,7 +45,22 @@ class AppRouter extends $AppRouter {
           ],
         ),
         AutoRoute(
-          page: CheckoutScreen.page,
+          page: CheckoutNavWrapper.page,
+          children: [
+            AutoRoute(
+              initial: true,
+              page: CheckoutScreen.page,
+            ),
+            AutoRoute(
+              page: CheckoutStepTwo.page,
+            ),
+            AutoRoute(
+              page: CheckoutStepThree.page,
+            ),
+            AutoRoute(
+              page: SuccessScreen.page,
+            ),
+          ],
         ),
         AutoRoute(
           page: FilterNavWrapper.page,

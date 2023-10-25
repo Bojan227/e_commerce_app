@@ -40,7 +40,7 @@ class BagContainer extends StatelessWidget {
               titleColor: colorPalette.black,
               onPress: () {
                 AutoRouter.of(context).push(
-                  const PageRouteInfo('CheckoutScreen'),
+                  const PageRouteInfo('CheckoutNavWrapper'),
                 );
               },
             ),
