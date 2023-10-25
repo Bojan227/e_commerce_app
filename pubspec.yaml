@@ -99,6 +99,9 @@ flutter:
     - lib/core/assets/car.png
     - lib/core/assets/cart.png
     - lib/core/assets/pin.png
+    - lib/core/assets/mastercard.png
+    - lib/core/assets/visa.png
+    - lib/core/assets/apple.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
