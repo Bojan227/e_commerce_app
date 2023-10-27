@@ -103,6 +103,11 @@ flutter:
     - lib/core/assets/visa.png
     - lib/core/assets/apple.png
     - lib/core/assets/friendly.png
+    - lib/core/assets/smiley.png
+    - lib/core/assets/user_1.png
+    - lib/core/assets/gb.png
+    - lib/core/assets/france.png
+    - lib/core/assets/denmark.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
