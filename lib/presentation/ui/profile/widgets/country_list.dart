@@ -31,11 +31,13 @@ class CountryList extends StatelessWidget {
             children: [
               SizedBox(
                 height: 56,
-                child: IconButton(
-                  onPressed: () {
+                child: GestureDetector(
+                  onTap: () {
                     AutoRouter.of(context).pop();
                   },
-                  icon: const Icon(Icons.arrow_back_sharp),
+                  child: const Icon(
+                    Icons.arrow_back_sharp,
+                  ),
                 ),
               ),
               Container(

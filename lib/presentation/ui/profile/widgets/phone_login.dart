@@ -28,9 +28,11 @@ class PhoneLogin extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  IconButton(
-                    onPressed: () => AutoRouter.of(context).pop(),
-                    icon: const Icon(
+                  GestureDetector(
+                    onTap: () {
+                      AutoRouter.of(context).pop();
+                    },
+                    child: const Icon(
                       Icons.arrow_back_sharp,
                     ),
                   ),
