@@ -69,5 +69,15 @@ class AppRouter extends $AppRouter {
             AutoRoute(page: FilterOptionsScreen.page, path: 'options')
           ],
         ),
+        AutoRoute(
+          page: ProfileNavWrapper.page,
+          children: [
+            AutoRoute(page: ProfileScreen.page, initial: true),
+            AutoRoute(page: AddressBook.page),
+            AutoRoute(page: CountryList.page),
+            AutoRoute(page: PhoneLogin.page),
+            AutoRoute(page: SmsCodeProvider.page),
+          ],
+        ),
       ];
 }
