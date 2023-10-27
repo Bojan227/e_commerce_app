@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
+import 'package:ecommerce_app/presentation/ui/profile/widgets/help_app_bar_row.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/colored_safe_area.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/custom_app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/input_field_with_prefix.dart';
@@ -25,28 +26,7 @@ class PhoneLogin extends StatelessWidget {
           preferredSize: const Size.fromHeight(156),
           child: CustomAppBar(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).pop();
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_sharp,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Help',
-                      style: textTheme.bodyLarge1.copyWith(
-                        color: colorPalette.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const HelpAppBarRow(),
               Text(
                 'enter your phone number',
                 style: textTheme.headlineLarge.copyWith(
