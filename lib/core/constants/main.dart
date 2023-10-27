@@ -18,3 +18,5 @@ final List<String> reviewStates = [
   'Nice',
   'Awesome'
 ];
+
+const int maxPinNumber = 5;
