@@ -15,15 +15,24 @@ class InputList extends StatelessWidget {
             keyboardType: TextInputType.text,
             handleInput: (value) {},
           ),
+          const SizedBox(
+            height: 16,
+          ),
           InputField(
             label: 'Phone',
             keyboardType: TextInputType.phone,
             handleInput: (value) {},
           ),
+          const SizedBox(
+            height: 16,
+          ),
           InputField(
             label: 'Email',
             keyboardType: TextInputType.emailAddress,
             handleInput: (value) {},
+          ),
+          const SizedBox(
+            height: 16,
           ),
           InputField(
             label: 'Date of birth',
