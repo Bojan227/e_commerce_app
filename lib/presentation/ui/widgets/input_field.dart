@@ -15,7 +15,7 @@ class InputField extends TextFormInputField {
   Widget build(BuildContext context) {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     return InputContainer(
-      inputColor: colorPalette.green300,
+      inputColor: colorPalette.grey300,
       child: TextFormInputField(
         label: label,
         keyboardType: keyboardType,

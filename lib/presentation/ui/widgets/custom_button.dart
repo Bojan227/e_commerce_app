@@ -35,16 +35,19 @@ abstract class CustomButtonBase extends StatelessWidget {
           color: bgColor,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(
-            label,
-            style: textTheme.bodyLarge1.copyWith(color: titleColor),
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          if (icon != null) icon
-        ]),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              label,
+              style: textTheme.bodyLarge1.copyWith(color: titleColor),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            if (icon != null) icon
+          ],
+        ),
       ),
     );
   }
