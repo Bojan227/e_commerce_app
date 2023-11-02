@@ -77,6 +77,7 @@ class AppRouter extends $AppRouter {
             AutoRoute(page: CountryList.page),
             AutoRoute(page: PhoneLogin.page),
             AutoRoute(page: SmsCodeProvider.page),
+            AutoRoute(page: ProfileSetup.page),
           ],
         ),
       ];
