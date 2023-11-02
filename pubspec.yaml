@@ -62,52 +62,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/core/assets/bag.png
-    - lib/core/assets/heart.png
-    - lib/core/assets/logotype.png
-    - lib/core/assets/user.png
-    - lib/core/assets/category_1.png
-    - lib/core/assets/category_2.png
-    - lib/core/assets/category_3.png
-    - lib/core/assets/story.png
-    - lib/core/assets/story_1.png
-    - lib/core/assets/story_2.png
-    - lib/core/assets/story_3.png
-    - lib/core/assets/citem_4.png
-    - lib/core/assets/citem_1.png
-    - lib/core/assets/citem_2.png
-    - lib/core/assets/citem_3.png
-    - lib/core/assets/sort_shape.png
-    - lib/core/assets/filter_shape.png
-    - lib/core/assets/product_1.png
-    - lib/core/assets/product_2.png
-    - lib/core/assets/product_3.png
-    - lib/core/assets/product_4.png
-    - lib/core/assets/main_product_1.png
-    - lib/core/assets/page_controll.png
-    - lib/core/assets/story_img.png
-    - lib/core/assets/rating_1.png
-    - lib/core/assets/rating_2.png
-    - lib/core/assets/rating_3.png
-    - lib/core/assets/rating_4.png
-    - lib/core/assets/rating_5.png
-    - lib/core/assets/rating_6.png
-    - lib/core/assets/review_img_1.png
-    - lib/core/assets/review_img_2.png
-    - lib/core/assets/product_img_2.png
-    - lib/core/assets/surprised.png
-    - lib/core/assets/car.png
-    - lib/core/assets/cart.png
-    - lib/core/assets/pin.png
-    - lib/core/assets/mastercard.png
-    - lib/core/assets/visa.png
-    - lib/core/assets/apple.png
-    - lib/core/assets/friendly.png
-    - lib/core/assets/smiley.png
-    - lib/core/assets/user_1.png
-    - lib/core/assets/gb.png
-    - lib/core/assets/france.png
-    - lib/core/assets/denmark.png
+    - lib/core/assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
