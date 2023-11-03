@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/account_info_tile.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/account_tile.dart';
+import 'package:ecommerce_app/presentation/ui/profile/widgets/add_payment_method.dart';
 import 'package:flutter/material.dart';
 
 class Account extends StatelessWidget {
@@ -40,9 +41,13 @@ class Account extends StatelessWidget {
               title: 'Payment Methods',
               leading: Icons.credit_card,
               onTap: () {
-                AutoRouter.of(context).push(
-                  const PageRouteInfo(
-                    'AddPaymentMethod',
+                Navigator.of(context).push(
+                  ModalBottomSheetRoute(
+                    builder: (context) => const FractionallySizedBox(
+                      heightFactor: 0.9,
+                      child: AddPaymentMethod(),
+                    ),
+                    isScrollControlled: true,
                   ),
                 );
               }),

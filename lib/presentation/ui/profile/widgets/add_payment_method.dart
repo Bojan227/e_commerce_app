@@ -5,7 +5,6 @@ import 'package:ecommerce_app/presentation/ui/profile/widgets/add_card_form.dart
 import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage()
 class AddPaymentMethod extends StatelessWidget {
   const AddPaymentMethod({super.key});
 
@@ -14,24 +13,32 @@ class AddPaymentMethod extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            AutoRouter.of(context).pop();
-          },
-          child: const Icon(
-            Icons.close,
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(24),
+            topRight: Radius.circular(24),
           ),
-        ),
-      ),
-      backgroundColor: colorPalette.white,
-      body: Padding(
+          color: colorPalette.white),
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              GestureDetector(
+                onTap: () {
+                  AutoRouter.of(context).pop();
+                },
+                child: const SizedBox(
+                  height: 58,
+                  child: Icon(
+                    Icons.close,
+                  ),
+                ),
+              ),
               Text(
                 'new card',
                 style:
