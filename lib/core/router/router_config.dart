@@ -79,6 +79,7 @@ class AppRouter extends $AppRouter {
             AutoRoute(page: SmsCodeProvider.page),
             AutoRoute(page: ProfileSetup.page),
             AutoRoute(page: AddPaymentMethod.page),
+            AutoRoute(page: SignOutScreen.page),
           ],
         ),
       ];

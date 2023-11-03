@@ -49,7 +49,13 @@ class Account extends StatelessWidget {
           AccountTile(
             title: 'Sign out',
             leading: Icons.output_outlined,
-            onTap: () {},
+            onTap: () {
+              AutoRouter.of(context).push(
+                const PageRouteInfo(
+                  'SignOutScreen',
+                ),
+              );
+            },
           ),
         ],
       ),
