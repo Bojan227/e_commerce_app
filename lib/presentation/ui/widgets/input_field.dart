@@ -9,13 +9,16 @@ class InputField extends TextFormInputField {
     required super.label,
     required super.keyboardType,
     required super.handleInput,
+    this.bgColor,
   });
+
+  final Color? bgColor;
 
   @override
   Widget build(BuildContext context) {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     return InputContainer(
-      inputColor: colorPalette.grey300,
+      inputColor: bgColor ?? colorPalette.grey300,
       child: TextFormInputField(
         label: label,
         keyboardType: keyboardType,

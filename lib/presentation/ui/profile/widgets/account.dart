@@ -39,7 +39,13 @@ class Account extends StatelessWidget {
           AccountTile(
               title: 'Payment Methods',
               leading: Icons.credit_card,
-              onTap: () {}),
+              onTap: () {
+                AutoRouter.of(context).push(
+                  const PageRouteInfo(
+                    'AddPaymentMethod',
+                  ),
+                );
+              }),
           AccountTile(
             title: 'Sign out',
             leading: Icons.output_outlined,

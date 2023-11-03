@@ -55,7 +55,11 @@ class PhoneLogin extends StatelessWidget {
                   label: 'Continue',
                   bgColor: colorPalette.yellow400,
                   titleColor: colorPalette.black,
-                  onPress: () {},
+                  onPress: () {
+                    AutoRouter.of(context).push(
+                      const PageRouteInfo('SmsCodeProvider'),
+                    );
+                  },
                 ),
               ),
             ],
