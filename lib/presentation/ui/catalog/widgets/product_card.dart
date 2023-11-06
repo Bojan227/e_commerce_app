@@ -33,11 +33,14 @@ class ProductCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  image,
-                  height: 200,
-                  width: 164,
-                  fit: BoxFit.contain,
+                child: Hero(
+                  tag: image,
+                  child: Image.asset(
+                    image,
+                    height: 200,
+                    width: 164,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
               if (badge)

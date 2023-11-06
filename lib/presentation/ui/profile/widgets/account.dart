@@ -38,19 +38,16 @@ class Account extends StatelessWidget {
             },
           ),
           AccountTile(
-              title: 'Payment Methods',
-              leading: Icons.credit_card,
-              onTap: () {
-                Navigator.of(context).push(
-                  ModalBottomSheetRoute(
-                    builder: (context) => const FractionallySizedBox(
-                      heightFactor: 0.9,
-                      child: AddPaymentMethod(),
-                    ),
-                    isScrollControlled: true,
-                  ),
-                );
-              }),
+            title: 'Payment Methods',
+            leading: Icons.credit_card,
+            onTap: () {
+              AutoRouter.of(context).push(
+                const PageRouteInfo(
+                  'PaymentMethods',
+                ),
+              );
+            },
+          ),
           AccountTile(
             title: 'Sign out',
             leading: Icons.output_outlined,

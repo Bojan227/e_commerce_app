@@ -32,27 +32,6 @@ final List<Map<String, dynamic>> products = [
     "badge": false,
     "badgeLabel": ''
   },
-  {
-    "image": 'lib/core/assets/product_4.png',
-    "price": 199.99,
-    "description": "Wooden bedside table featuring a raised design",
-    "badge": false,
-    "badgeLabel": ''
-  },
-  {
-    "image": 'lib/core/assets/product_4.png',
-    "price": 199.99,
-    "description": "Wooden bedside table featuring a raised design",
-    "badge": false,
-    "badgeLabel": ''
-  },
-  {
-    "image": 'lib/core/assets/product_4.png',
-    "price": 199.99,
-    "description": "Wooden bedside table featuring a raised design",
-    "badge": false,
-    "badgeLabel": ''
-  },
 ];
 
 class ProductGrid extends StatelessWidget {

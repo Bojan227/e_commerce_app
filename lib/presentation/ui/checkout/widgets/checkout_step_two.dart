@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/blocs/checkout/checkout_steps/checkout_steps_cubit.dart';
-import 'package:ecommerce_app/presentation/ui/checkout/widgets/delivery_address.dart';
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/delivery_options.dart';
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/delivery_time_options.dart';
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/main_scaffold.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/address_tile.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +33,18 @@ class CheckoutStepTwo extends StatelessWidget {
               ),
             ),
             const DeliveryOptions(),
-            const DeliveryAddress(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: Text(
+                'delivery address',
+                style: textTheme.titleLarge.copyWith(color: colorPalette.black),
+              ),
+            ),
+            const AddressTile(
+              title: 'London, 221B Baker Street',
+              subtitle: 'Hanna Gouse, +7 932 123-43-23',
+              trailing: Icon(Icons.arrow_forward_ios_outlined),
+            ),
             const DeliveryTimeOptions(),
             Padding(
               padding: const EdgeInsets.only(bottom: 16, top: 48),

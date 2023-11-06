@@ -40,11 +40,14 @@ class ProductAppBar extends StatelessWidget {
                     context.read<ProductImagesControllerCubit>().nextImage();
                   }
                 },
-                child: Image.asset(
-                  productImages[state],
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: 'lib/core/assets/product_4.png',
+                  child: Image.asset(
+                    productImages[state],
+                    width: double.infinity,
+                    height: double.infinity,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               );
             },

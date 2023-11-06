@@ -42,10 +42,16 @@ class CheckoutStepOne extends StatelessWidget {
                     keyboardType: TextInputType.text,
                     handleInput: (value) {},
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   InputField(
                     label: 'Phone',
                     keyboardType: TextInputType.text,
                     handleInput: (value) {},
+                  ),
+                  const SizedBox(
+                    height: 16,
                   ),
                   InputField(
                     label: 'Email',

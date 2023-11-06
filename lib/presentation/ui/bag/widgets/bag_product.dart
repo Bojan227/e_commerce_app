@@ -9,11 +9,12 @@ class BagProduct extends StatelessWidget {
 
   final int notificationDuration = 3;
 
-  const BagProduct(
-      {super.key,
-      required this.image,
-      required this.price,
-      required this.description});
+  const BagProduct({
+    super.key,
+    required this.image,
+    required this.price,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {

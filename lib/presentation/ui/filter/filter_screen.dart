@@ -44,7 +44,7 @@ class FilterScreen extends StatelessWidget {
               'Clear',
               style: textStyle,
             ),
-          )
+          ),
         ],
       ),
       body: Container(
