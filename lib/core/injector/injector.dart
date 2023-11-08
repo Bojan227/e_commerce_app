@@ -1,3 +1,6 @@
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:ecommerce_app/core/media_service/media_service.dart';
+import 'package:ecommerce_app/core/permission_service/permission_service.dart';
 import 'package:ecommerce_app/core/sqflite/sqflite_helper.dart';
 import 'package:ecommerce_app/data/datasources/ulmo_local_datasource.dart';
 import 'package:ecommerce_app/data/repositories/ulmo_repository_impl.dart';
@@ -26,5 +29,13 @@ Future setupInjector() async {
   final ReviewBloc reviewBloc = ReviewBloc(
       getReviewsUseCase: getReviewsUseCase, addReviewUseCase: addReviewUseCase);
 
+  final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+
   getIt.registerSingleton<ReviewBloc>(reviewBloc);
+  getIt.registerSingleton<PermissionService>(
+    PermissionHandlerService(deviceInfo: deviceInfoPlugin),
+  );
+  getIt.registerSingleton<MediaServiceInterface>(
+    MediaService(),
+  );
 }

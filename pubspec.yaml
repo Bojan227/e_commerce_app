@@ -16,6 +16,10 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  device_info_plus: ^9.1.0
+  path_provider: ^2.1.1
+  flutter_image_compress: ^2.1.0
+  permission_handler: ^11.0.1
   flash: ^3.0.5+1
   dartz: ^0.10.1
   get_it: ^7.6.4
