@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -84,13 +86,14 @@ class PermissionHandlerService implements PermissionService {
 
   @override
   Future requestPhotoPermission() async {
-    final androidInfo = await deviceInfo.androidInfo;
-    final androidSdkVersion = androidInfo.version.sdkInt;
+    if (Platform.isAndroid) {
+      final androidInfo = await deviceInfo.androidInfo;
+      final androidSdkVersion = androidInfo.version.sdkInt;
 
-    if (androidSdkVersion > 32) {
-      return await Permission.photos.request();
+      if (androidSdkVersion > 32) {
+        return await Permission.photos.request();
+      }
     }
-
     return await Permission.storage.request();
   }
 }

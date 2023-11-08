@@ -47,7 +47,6 @@ class _ImageInputState extends State<ImageInput> {
   @override
   Widget build(BuildContext context) {
     return AvatarContainer(
-      isLoading: _isLoadingGettingImage,
       onTap: pickImageSource,
       imageFile: imageFile,
     );
