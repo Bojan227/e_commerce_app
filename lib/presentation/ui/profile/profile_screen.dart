@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
     return MyAccountScaffold(
-      body: Account(),
+      body: EmptyAccount(),
     );
   }
 }

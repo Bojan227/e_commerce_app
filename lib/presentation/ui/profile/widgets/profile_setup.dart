@@ -25,6 +25,12 @@ class ProfileSetup extends StatelessWidget {
           style: appBarTextStyle,
         ),
         centerTitle: true,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context, true);
+          },
+          child: const Icon(Icons.arrow_back),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),

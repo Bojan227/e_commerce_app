@@ -67,7 +67,9 @@ class PinInput extends StatelessWidget {
                 if (index < 4) {
                   focusNodes[index].unfocus();
 
-                  FocusScope.of(context).requestFocus(focusNodes[index + 1]);
+                  FocusScope.of(context).requestFocus(
+                    focusNodes[index + 1],
+                  );
                 }
 
                 if (onSubmit != null) onSubmit!();

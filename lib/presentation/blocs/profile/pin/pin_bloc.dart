@@ -31,7 +31,13 @@ class PinBloc extends Bloc<PinEvent, PinState> {
 
     if (state.pin.join('') == _validPin) {
       emit(
-        state.copyWith(pinStatus: Status.verified),
+        state.copyWith(
+          pinStatus: Status.verified,
+          pin: List.generate(
+            maxPinNumber,
+            (index) => '',
+          ),
+        ),
       );
     } else {
       emit(

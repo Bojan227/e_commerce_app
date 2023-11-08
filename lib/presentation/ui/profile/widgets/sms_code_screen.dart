@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/constants/main.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/presentation/blocs/profile/pin/pin_bloc.dart';
+import 'package:ecommerce_app/presentation/blocs/profile/timer/timer_bloc.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/pin_app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/pin_screen.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/colored_safe_area.dart';
@@ -63,6 +64,9 @@ class _SmsCodeScreenState extends State<SmsCodeScreen> {
                   content: Text("Pin Verified"),
                 ),
               );
+              context.read<TimerBloc>().add(
+                    TimerReset(),
+                  );
 
               for (FocusNode node in focusNodes) {
                 node.unfocus();
@@ -70,10 +74,26 @@ class _SmsCodeScreenState extends State<SmsCodeScreen> {
 
               Timer(
                 const Duration(seconds: 3),
-                () {
-                  AutoRouter.of(context).push(
+                () async {
+                  for (var controller in controllers) {
+                    controller.clear();
+                  }
+
+                  final response = await AutoRouter.of(context).push(
                     const PageRouteInfo('ProfileSetup'),
                   );
+
+                  if (response == true && context.mounted) {
+                    context.read<TimerBloc>().add(const TimerStarted(30));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        duration: Duration(seconds: 1),
+                        content: Text(
+                          'New pin code was sent',
+                        ),
+                      ),
+                    );
+                  }
                 },
               );
             }

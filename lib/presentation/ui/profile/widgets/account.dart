@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/account_info_tile.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/account_tile.dart';
-import 'package:ecommerce_app/presentation/ui/profile/widgets/add_payment_method.dart';
 import 'package:flutter/material.dart';
 
 class Account extends StatelessWidget {
