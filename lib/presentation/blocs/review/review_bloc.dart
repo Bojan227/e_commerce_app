@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:ecommerce_app/domain/entities/new_review.dart';
 import 'package:ecommerce_app/domain/entities/review_entity.dart';
@@ -18,10 +20,12 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
           const ReviewState(
               reviews: [],
               status: Status.initial,
-              newReviewStatus: Status.initial),
+              newReviewStatus: Status.initial,
+              reviewImages: []),
         ) {
     on<GetReviews>(_onGetReviews);
     on<AddReviewEvent>(_onAddReview);
+    on<AddReviewImageEvent>(_onAddReviewImage);
   }
 
   Future<void> _onGetReviews(GetReviews event, Emitter emit) async {
@@ -59,5 +63,10 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
             reviews: [review, ...state.reviews]),
       ),
     );
+  }
+
+  Future<void> _onAddReviewImage(
+      AddReviewImageEvent event, Emitter emit) async {
+    emit(state.copyWith(reviewImages: [...state.reviewImages, event.image]));
   }
 }

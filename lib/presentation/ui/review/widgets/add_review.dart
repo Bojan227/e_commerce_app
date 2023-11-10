@@ -29,7 +29,7 @@ class AddReview extends StatelessWidget {
       final newReview = NewReview(
         rating: rating,
         userReview: userReview,
-        reviewImages: [],
+        reviewImages: context.read<ReviewBloc>().state.reviewImages,
         userId: 1,
         productId: 1,
       );
@@ -89,6 +89,7 @@ class AddReview extends StatelessWidget {
                     horizontal: mainConfig.padding1,
                   ),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const RatingContainer(),
                       Form(
@@ -100,9 +101,6 @@ class AddReview extends StatelessWidget {
                         ),
                       ),
                       const AddReviewImagesContainer(),
-                      const SizedBox(
-                        height: 24,
-                      ),
                       BlocBuilder<RatingCubit, int>(
                         builder: (context, ratingState) {
                           return SendReviewButton(

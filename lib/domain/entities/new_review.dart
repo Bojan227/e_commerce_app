@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -8,7 +10,7 @@ class NewReview with _$NewReview {
   const factory NewReview({
     required int rating,
     required String userReview,
-    required List<String> reviewImages,
+    required List<File> reviewImages,
     required int userId,
     required int productId,
   }) = _NewReview;

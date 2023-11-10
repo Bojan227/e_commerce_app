@@ -20,3 +20,12 @@ class AddReviewEvent extends ReviewEvent {
   @override
   List<Object?> get props => [newReview];
 }
+
+class AddReviewImageEvent extends ReviewEvent {
+  final File image;
+
+  AddReviewImageEvent({required this.image});
+
+  @override
+  List<Object?> get props => [image];
+}
