@@ -1,29 +1,21 @@
 import 'dart:io';
-
 import 'package:ecommerce_app/core/injector/injector.dart';
 import 'package:ecommerce_app/core/media_service/media_service.dart';
-
-import 'package:ecommerce_app/presentation/ui/profile/widgets/avatar_container.dart';
-import 'package:ecommerce_app/presentation/ui/profile/widgets/image_picker_action_sheet.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/image_picker_action_sheet.dart';
 import 'package:flutter/cupertino.dart';
 
-enum AppState {
-  free,
-  picked,
-  cropped,
-}
+class ImageInput extends StatelessWidget {
+  ImageInput({
+    super.key,
+    required this.onAddImage,
+    required this.context,
+    required this.inputContainer,
+  });
 
-class ImageInput extends StatefulWidget {
-  const ImageInput({super.key});
-
-  @override
-  State<ImageInput> createState() => _ImageInputState();
-}
-
-class _ImageInputState extends State<ImageInput> {
-  final MediaServiceInterface _mediaService = getIt<MediaServiceInterface>();
-
-  File? imageFile;
+  final void Function(File image) onAddImage;
+  final BuildContext context;
+  final MediaServiceInterface mediaService = getIt<MediaServiceInterface>();
+  final Widget inputContainer;
 
   Future<void> pickImageSource() async {
     AppImageSource? appImageSource = await showCupertinoModalPopup(
@@ -37,18 +29,18 @@ class _ImageInputState extends State<ImageInput> {
 
   Future _getImage(AppImageSource appImageSource) async {
     final pickedImageFile =
-        await _mediaService.uploadImage(context, appImageSource);
+        await mediaService.uploadImage(context, appImageSource);
 
     if (pickedImageFile != null) {
-      setState(() => imageFile = pickedImageFile);
+      onAddImage(pickedImageFile);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return AvatarContainer(
+    return GestureDetector(
       onTap: pickImageSource,
-      imageFile: imageFile,
+      child: inputContainer,
     );
   }
 }

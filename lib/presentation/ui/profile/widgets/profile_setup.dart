@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
-import 'package:ecommerce_app/presentation/ui/widgets/image_input.dart';
+import 'package:ecommerce_app/presentation/ui/profile/widgets/profile_image_container.dart';
 import 'package:ecommerce_app/presentation/ui/profile/widgets/input_list.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +46,7 @@ class ProfileSetup extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
-              ImageInput(),
+              ProfileImageContainer(),
               InputList(),
             ],
           ),
