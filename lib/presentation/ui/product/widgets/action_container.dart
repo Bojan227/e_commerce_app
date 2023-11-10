@@ -20,6 +20,7 @@ class ActionContainer extends StatelessWidget {
         left: mainConfig.padding1,
         right: mainConfig.padding1,
         top: mainConfig.padding2,
+        bottom: mainConfig.padding1,
       ),
       decoration: BoxDecoration(color: colorPalette.white),
       child: Column(
