@@ -4,6 +4,7 @@ import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/ui/product/widgets/action_item.dart';
+import 'package:ecommerce_app/presentation/ui/product/widgets/product_info_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class ActionContainer extends StatelessWidget {
@@ -26,7 +27,19 @@ class ActionContainer extends StatelessWidget {
       child: Column(
         children: [
           ActionItem(
-            onTap: () {},
+            onTap: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                isDismissible: false,
+                context: context,
+                builder: (context) {
+                  return const FractionallySizedBox(
+                    heightFactor: 0.9,
+                    child: ProductInfoBottomSheet(),
+                  );
+                },
+              );
+            },
             text: "Product information",
             action: Icon(
               Icons.arrow_forward_ios,

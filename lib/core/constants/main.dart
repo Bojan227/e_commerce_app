@@ -20,3 +20,15 @@ final List<String> reviewStates = [
 ];
 
 const int maxPinNumber = 5;
+
+const measurements = [
+  {'title': 'Height:', 'info': '50 cm'},
+  {'title': 'Width:', 'info': '40 cm'},
+  {'title': 'Depth:', 'info': '35 cm'},
+  {'title': 'Weight:', 'info': '11.7 kg'},
+];
+
+const composition = [
+  {'title': 'Main Material', 'info': '100% Mango tree wood'},
+  {'title': 'Weight', 'info': '100% Chipboard'},
+];
