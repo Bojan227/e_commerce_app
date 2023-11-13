@@ -24,41 +24,38 @@ class CategoryItem extends StatelessWidget {
           ),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Container(
-          height: 100,
-          decoration: BoxDecoration(
-            color: colorPalette.grey100,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16, top: 16, bottom: 52, right: 16),
-                  child: Text(
-                    label.toLowerCase(),
-                    style: textTheme.titleLarge
-                        .copyWith(color: colorPalette.black),
-                  ),
+      child: Container(
+        height: 100,
+        decoration: BoxDecoration(
+          color: colorPalette.grey100,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 16, top: 16, bottom: 52, right: 16),
+                child: Text(
+                  label.toLowerCase(),
+                  style:
+                      textTheme.titleLarge.copyWith(color: colorPalette.black),
                 ),
               ),
-              ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomRight: Radius.circular(8)),
-                child: Image.asset(
-                  image,
-                  width: 82,
-                  height: 100,
-                  fit: BoxFit.contain,
-                ),
+            ),
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                  topRight: Radius.circular(8),
+                  bottomRight: Radius.circular(8)),
+              child: Image.asset(
+                image,
+                width: 82,
+                height: 100,
+                fit: BoxFit.contain,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

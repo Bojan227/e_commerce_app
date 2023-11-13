@@ -3,6 +3,7 @@ import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:ecommerce_app/presentation/blocs/checkout/checkout_steps/checkout_steps_cubit.dart';
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/main_scaffold.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/column_with_spacing.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/input_field.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
@@ -20,38 +21,33 @@ class CheckoutStepOne extends StatelessWidget {
 
     return MainScaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: Text(
+              'contact info',
+              style: titleLarge,
+            ),
+          ),
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: ColumnWithSpacing(
+                spacing: 16,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    child: Text(
-                      'contact info',
-                      style: titleLarge,
-                    ),
-                  ),
                   const SizedBox(
-                    height: 8,
+                    height: 24,
                   ),
                   InputField(
                     label: 'Full name',
                     keyboardType: TextInputType.text,
                     handleInput: (value) {},
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
                   InputField(
                     label: 'Phone',
                     keyboardType: TextInputType.text,
                     handleInput: (value) {},
-                  ),
-                  const SizedBox(
-                    height: 16,
                   ),
                   InputField(
                     label: 'Email',

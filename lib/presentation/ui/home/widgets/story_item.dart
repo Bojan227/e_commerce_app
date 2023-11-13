@@ -13,30 +13,27 @@ class StoryItem extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
     final textTheme = Theme.of(context).extension<CustomTextTheme>()!;
 
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(
-              image,
-              width: 88,
-              height: 88,
-              fit: BoxFit.cover,
-            ),
+    return Stack(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Image.asset(
+            image,
+            width: 88,
+            height: 88,
+            fit: BoxFit.cover,
           ),
-          Positioned(
-            left: 8,
-            right: 8,
-            bottom: 8,
-            child: Text(
-              text,
-              style: textTheme.bodyLarge3.copyWith(color: colorPalette.white),
-            ),
+        ),
+        Positioned(
+          left: 8,
+          right: 8,
+          bottom: 8,
+          child: Text(
+            text,
+            style: textTheme.bodyLarge3.copyWith(color: colorPalette.white),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

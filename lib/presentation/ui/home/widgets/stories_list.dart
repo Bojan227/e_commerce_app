@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/story_item.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/row_with_spacing.dart';
 import 'package:flutter/material.dart';
 
 final List<Map<String, dynamic>> stories = [
@@ -15,24 +16,25 @@ class StoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 8,
-          ),
-          child: Row(
-            children: [
-              for (Map<String, dynamic> story in stories)
-                GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).push(
-                        const PageRouteInfo('StoryScreen'),
-                      );
-                    },
-                    child:
-                        StoryItem(image: story['image'], text: story['text']))
-            ],
-          ),
-        ));
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          vertical: 8,
+        ),
+        child: RowWithSpacing(
+          spacing: 12,
+          children: [
+            for (Map<String, dynamic> story in stories)
+              GestureDetector(
+                  onTap: () {
+                    AutoRouter.of(context).push(
+                      const PageRouteInfo('StoryScreen'),
+                    );
+                  },
+                  child: StoryItem(image: story['image'], text: story['text']))
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/presentation/ui/checkout/widgets/delivery_time_chip.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/row_with_spacing.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalList extends StatelessWidget {
@@ -12,7 +13,7 @@ class HorizontalList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        child: Row(children: deliveryTimeChips),
+        child: RowWithSpacing(spacing: 12, children: deliveryTimeChips),
       ),
     );
   }
