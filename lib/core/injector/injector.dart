@@ -8,7 +8,9 @@ import 'package:ecommerce_app/domain/repositories/ulmo_repository.dart';
 import 'package:ecommerce_app/domain/usecases/add_review_usecase.dart';
 import 'package:ecommerce_app/domain/usecases/get_reviews_usecase.dart';
 import 'package:ecommerce_app/presentation/blocs/review/review_bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -38,4 +40,11 @@ Future setupInjector() async {
   getIt.registerSingleton<MediaServiceInterface>(
     MediaService(),
   );
+
+  final Logger log = Logger(
+    printer: PrettyPrinter(),
+    level: kDebugMode ? Level.trace : Level.off,
+  );
+
+  getIt.registerLazySingleton<Logger>(() => log);
 }

@@ -4,7 +4,10 @@ import 'package:ecommerce_app/core/sqflite/sqflite_helper.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/core/theme/text_theme.dart';
+import 'package:ecommerce_app/presentation/blocs/observers/global_bloc_observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logger/logger.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +15,9 @@ Future<void> main() async {
   final dbHelper = getIt<SqfHelper>();
   await dbHelper.open();
 
+  final logger = getIt<Logger>();
+
+  Bloc.observer = GlobalBlocObserver(logger: logger);
   runApp(const MyApp());
 }
 
