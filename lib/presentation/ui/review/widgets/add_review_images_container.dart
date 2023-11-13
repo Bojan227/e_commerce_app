@@ -50,7 +50,7 @@ class AddReviewImagesContainer extends StatelessWidget {
                 width: 12,
               ),
               for (final image in state.reviewImages)
-                AddReviewImage(imagePath: image.path, onTap: () {})
+                AddReviewImage(imagePath: image, onTap: () {})
             ],
           ),
         ),

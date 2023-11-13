@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:flutter/material.dart';
 
 class AddReviewImage extends StatelessWidget {
-  final String imagePath;
+  final File imagePath;
   final void Function() onTap;
 
   const AddReviewImage({
@@ -21,7 +23,7 @@ class AddReviewImage extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
+            child: Image.file(
               imagePath,
               height: 64,
               width: 64,
