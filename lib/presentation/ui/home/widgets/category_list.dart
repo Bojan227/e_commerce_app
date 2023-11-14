@@ -38,6 +38,11 @@ class CategoryList extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         }
+        if (state is RoomsFailure) {
+          return const Center(
+            child: Text('Please try again later!'),
+          );
+        }
 
         return Container();
       },

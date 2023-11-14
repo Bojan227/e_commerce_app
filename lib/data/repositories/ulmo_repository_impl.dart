@@ -69,13 +69,17 @@ class UlmoRepositoryImpl implements UlmoRepository {
 
   @override
   Future<Either<Failure, List<RoomEntity>>> getRooms(String searchQuery) async {
-    final List<Room> rooms = await ulmoLocalDataSource.getRooms(searchQuery);
+    try {
+      final List<Room> rooms = await ulmoLocalDataSource.getRooms(searchQuery);
 
-    final List<RoomEntity> roomEntities = rooms
-        .map((room) =>
-            RoomEntity(roomId: room.id, name: room.name!, image: room.image!))
-        .toList();
+      final List<RoomEntity> roomEntities = rooms
+          .map((room) =>
+              RoomEntity(roomId: room.id, name: room.name!, image: room.image!))
+          .toList();
 
-    return Right(roomEntities);
+      return Right(roomEntities);
+    } catch (e) {
+      return Left(CacheFailure());
+    }
   }
 }

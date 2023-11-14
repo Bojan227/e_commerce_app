@@ -47,7 +47,11 @@ class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
 
   @override
   Future<List<Room>> getRooms(String searchQuery) async {
-    final rooms = await isarHelper.getRooms(searchQuery);
-    return rooms;
+    try {
+      final rooms = await isarHelper.getRooms(searchQuery);
+      return rooms;
+    } catch (e) {
+      throw CacheException();
+    }
   }
 }
