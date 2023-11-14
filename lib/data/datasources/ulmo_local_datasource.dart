@@ -1,4 +1,6 @@
 import 'package:ecommerce_app/core/error/exception.dart';
+import 'package:ecommerce_app/core/isar/collections/room.dart';
+import 'package:ecommerce_app/core/isar/isar_helper.dart';
 import 'package:ecommerce_app/core/sqflite/sqflite_helper.dart';
 import 'package:ecommerce_app/data/models/new_review_dto.dart';
 import 'package:ecommerce_app/data/models/review_dto.dart';
@@ -6,12 +8,14 @@ import 'package:ecommerce_app/data/models/review_dto.dart';
 abstract class UlmoLocalDataSource {
   Future<List<ReviewDto>> getReviews(int productId);
   Future<ReviewDto> addReview(NewReviewDto review);
+  Future<List<Room>> getRooms(String searchQuery);
 }
 
 class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
   final SqfHelper sqfHelper;
+  final IsarHelper isarHelper;
 
-  UlmoLocalDataSourceImpl({required this.sqfHelper});
+  UlmoLocalDataSourceImpl({required this.isarHelper, required this.sqfHelper});
 
   @override
   Future<List<ReviewDto>> getReviews(int productId) async {
@@ -39,5 +43,11 @@ class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
     final reviewDto = ReviewDto.fromJson(reviewList[0]);
 
     return reviewDto;
+  }
+
+  @override
+  Future<List<Room>> getRooms(String searchQuery) async {
+    final rooms = await isarHelper.getRooms(searchQuery);
+    return rooms;
   }
 }

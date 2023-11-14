@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:ecommerce_app/core/error/failure.dart';
+import 'package:ecommerce_app/core/isar/collections/room.dart';
 import 'package:ecommerce_app/data/datasources/ulmo_local_datasource.dart';
 import 'package:ecommerce_app/data/models/new_review_dto.dart';
 import 'package:ecommerce_app/data/models/review_dto.dart';
 import 'package:ecommerce_app/domain/entities/new_review.dart';
 import 'package:ecommerce_app/domain/entities/review_entity.dart';
+import 'package:ecommerce_app/domain/entities/room_entity.dart';
 import 'package:ecommerce_app/domain/entities/user_entity.dart';
 import 'package:ecommerce_app/domain/repositories/ulmo_repository.dart';
 
@@ -63,5 +65,17 @@ class UlmoRepositoryImpl implements UlmoRepository {
     );
 
     return Right(reviewEntity);
+  }
+
+  @override
+  Future<Either<Failure, List<RoomEntity>>> getRooms(String searchQuery) async {
+    final List<Room> rooms = await ulmoLocalDataSource.getRooms(searchQuery);
+
+    final List<RoomEntity> roomEntities = rooms
+        .map((room) =>
+            RoomEntity(roomId: room.id, name: room.name!, image: room.image!))
+        .toList();
+
+    return Right(roomEntities);
   }
 }

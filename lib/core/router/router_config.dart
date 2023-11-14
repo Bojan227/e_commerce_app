@@ -11,7 +11,8 @@ class AppRouter extends $AppRouter {
             page: HomeNavWrapper.page,
             path: '',
             children: [
-              AutoRoute(page: HomeScreen.page, path: 'home', initial: true),
+              AutoRoute(
+                  page: HomeScreenProviders.page, path: 'home', initial: true),
               AutoRoute(
                 page: CategoryScreen.page,
                 path: 'category',

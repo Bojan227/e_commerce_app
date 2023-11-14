@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/core/injector/injector.dart';
+import 'package:ecommerce_app/core/isar/isar_helper.dart';
 import 'package:ecommerce_app/core/router/router_config.dart';
 import 'package:ecommerce_app/core/sqflite/sqflite_helper.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
@@ -16,7 +17,9 @@ Future<void> main() async {
   await dbHelper.open();
 
   final logger = getIt<Logger>();
+  final isarHelper = getIt<IsarHelper>();
 
+  await isarHelper.open();
   Bloc.observer = GlobalBlocObserver(logger: logger);
   runApp(const MyApp());
 }

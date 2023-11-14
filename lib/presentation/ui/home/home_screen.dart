@@ -1,13 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
+import 'package:ecommerce_app/presentation/blocs/rooms/rooms_bloc.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/category_list.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/stories_list.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
     final colorPalette = Theme.of(context).extension<ColorPalette>()!;
 
     return Scaffold(
+      backgroundColor: colorPalette.white,
       body: CustomScrollView(
         slivers: [
           const AppBarWidget(),
@@ -29,11 +30,19 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(
                     horizontal: mainConfig.padding1,
                   ),
-                  child: const Column(
+                  child: Column(
                     children: [
-                      SearchBarWidget(),
-                      StoriesList(),
-                      CategoryList(),
+                      SearchBarWidget(
+                        onSearch: (searchQuery) {
+                          context.read<RoomsBloc>().add(
+                                GetRooms(
+                                  searchQuery: searchQuery,
+                                ),
+                              );
+                        },
+                      ),
+                      const StoriesList(),
+                      const CategoryList(),
                     ],
                   ),
                 );

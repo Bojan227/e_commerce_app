@@ -4,7 +4,12 @@ import 'package:ecommerce_app/core/theme/text_theme.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({super.key});
+  const SearchBarWidget({
+    super.key,
+    this.onSearch,
+  });
+
+  final void Function(String searchQuery)? onSearch;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,11 @@ class SearchBarWidget extends StatelessWidget {
                     color: colorPalette.grey500,
                   ),
                 ),
+                onChanged: (value) {
+                  if (onSearch != null) {
+                    onSearch!(value);
+                  }
+                },
               ),
             )
           ],
