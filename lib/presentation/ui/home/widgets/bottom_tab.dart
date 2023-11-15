@@ -20,13 +20,17 @@ class BottomTabContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           for (int index = 0; index < tabAssets.length; index += 1)
-            GestureDetector(
-              onTap: () {
-                tabsRouter.setActiveIndex(index);
-              },
-              child: TabItem(
-                isSelected: tabsRouter.activeIndex == index,
-                imagePath: tabAssets[index],
+            Semantics(
+              label:
+                  '${tabAssets[index]['label']} tab. Tab ${index + 1} of ${tabAssets.length}',
+              child: GestureDetector(
+                onTap: () {
+                  tabsRouter.setActiveIndex(index);
+                },
+                child: TabItem(
+                  isSelected: tabsRouter.activeIndex == index,
+                  imagePath: tabAssets[index]['img'],
+                ),
               ),
             ),
         ],

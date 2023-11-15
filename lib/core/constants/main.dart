@@ -1,8 +1,20 @@
-final List<String> tabAssets = [
-  'lib/core/assets/logotype.png',
-  'lib/core/assets/bag.png',
-  'lib/core/assets/heart.png',
-  'lib/core/assets/user.png'
+final List<Map<String, dynamic>> tabAssets = [
+  {
+    'label': 'home',
+    'img': 'lib/core/assets/logotype.png',
+  },
+  {
+    'label': 'cart',
+    'img': 'lib/core/assets/bag.png',
+  },
+  {
+    'label': 'favourite',
+    'img': 'lib/core/assets/heart.png',
+  },
+  {
+    'label': 'profile',
+    'img': 'lib/core/assets/user.png',
+  },
 ];
 
 const int storyDuration = 5;

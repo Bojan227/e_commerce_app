@@ -44,9 +44,12 @@ class BagProductDesription extends StatelessWidget {
                       notificationDuration: notificationDuration),
                 );
               },
-              icon: Icon(
-                Icons.cancel_outlined,
-                color: colorPalette.grey500,
+              icon: Semantics(
+                label: 'Delete bag item',
+                child: Icon(
+                  Icons.cancel_outlined,
+                  color: colorPalette.grey500,
+                ),
               ),
             )
           ],
