@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:ecommerce_app/core/constants/main.dart';
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
@@ -13,7 +14,7 @@ class ReviewCard extends StatelessWidget {
   final String userComment;
   final int userRating;
   final String createdAt;
-  final List<String> reviewImages;
+  final List<Uint8List> reviewImages;
 
   const ReviewCard({
     super.key,

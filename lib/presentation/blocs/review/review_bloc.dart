@@ -59,8 +59,10 @@ class ReviewBloc extends Bloc<ReviewEvent, ReviewState> {
       ),
       (review) => emit(
         state.copyWith(
-            newReviewStatus: Status.loaded,
-            reviews: [review, ...state.reviews]),
+          newReviewStatus: Status.loaded,
+          reviews: [review, ...state.reviews],
+          reviewImages: [],
+        ),
       ),
     );
   }

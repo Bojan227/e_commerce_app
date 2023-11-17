@@ -47,7 +47,7 @@ class ReviewList extends StatelessWidget {
                               userComment: review.userReview,
                               userRating: review.rating,
                               createdAt: review.createdAt.toIso8601String(),
-                              reviewImages: [],
+                              reviewImages: review.reviewImages,
                             ),
                           )
                           .toList(),

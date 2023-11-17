@@ -10,7 +10,7 @@ class ReviewDto with _$ReviewDto {
     required int id,
     required int rating,
     required String review,
-    // required String reviewImages,
+    required String review_images,
     required String createdAt,
     required int user_id,
     required String full_name,

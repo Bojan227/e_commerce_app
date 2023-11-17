@@ -10,7 +10,7 @@ class Review with _$Review {
     required int reviewId,
     required int rating,
     required String userReview,
-    required List<String> reviewImages,
+    required List<Uint8List> reviewImages,
     required DateTime createdAt,
     required User user,
   }) = _Review;

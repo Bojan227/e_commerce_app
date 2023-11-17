@@ -40,6 +40,8 @@ class UlmoLocalDataSourceImpl implements UlmoLocalDataSource {
 
     if (reviewList == null) throw CacheException();
 
+    print(reviewList[0]);
+
     final reviewDto = ReviewDto.fromJson(reviewList[0]);
 
     return reviewDto;

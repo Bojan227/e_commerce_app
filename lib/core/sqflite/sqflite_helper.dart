@@ -21,7 +21,7 @@ class SqfHelper {
           );
 
           await db.execute(
-            'CREATE TABLE IF NOT EXISTS review (id INTEGER PRIMARY KEY AUTOINCREMENT, rating INTEGER, review TEXT, createdAt TEXT, user_id INTEGER, review_images BLOB, product_id INTEGER)',
+            'CREATE TABLE IF NOT EXISTS review (id INTEGER PRIMARY KEY AUTOINCREMENT, rating INTEGER, review TEXT, createdAt TEXT, user_id INTEGER, review_images TEXT, product_id INTEGER)',
           );
         },
       );
@@ -40,12 +40,12 @@ class SqfHelper {
   Future<List<Map<String, dynamic>>?> getReviewsByProductId(
       int productId) async {
     return await _db?.rawQuery(
-        'SELECT r.id, r.review, r.rating, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.product_id = $productId ORDER BY r.id desc;');
+        'SELECT r.id, r.review, r.rating, r.review_images, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.product_id = $productId ORDER BY r.id desc;');
   }
 
   Future<List<Map<String, dynamic>>?> getReviewByReviewId(int reviewId) async {
     return await _db?.rawQuery(
-        'SELECT r.id, r.review, r.rating, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.id = $reviewId;');
+        'SELECT r.id, r.review, r.rating, r.review_images, r.createdAt, r.user_id, u.full_name, u.phone, u.email FROM review as r Join user as u ON r.user_id = u.id where r.id = $reviewId;');
   }
 
   Future<int?> addReview(Map<String, dynamic> review) async {

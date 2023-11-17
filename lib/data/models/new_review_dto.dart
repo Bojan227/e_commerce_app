@@ -9,7 +9,7 @@ class NewReviewDto with _$NewReviewDto {
   const factory NewReviewDto({
     required int rating,
     required String review,
-    // required String reviewImages,
+    required String review_images,
     required String createdAt,
     required int user_id,
     required int product_id,
