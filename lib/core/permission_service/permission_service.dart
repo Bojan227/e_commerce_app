@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:ecommerce_app/presentation/ui/widgets/permission_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -26,23 +27,11 @@ class PermissionHandlerService implements PermissionService {
     if (!context.mounted) return false;
 
     if (cameraPermissionStatus != PermissionStatus.granted) {
-      await showDialog(
-        context: context,
-        builder: (_) => AlertDialog.adaptive(
-          actions: [
-            TextButton(
-              onPressed: () {
-                openAppSettings();
-              },
-              child: const Text(
-                'Yes',
-              ),
-            ),
-          ],
-          title: const Text('Camera Permission'),
-          content: const Text(
-              'Camera permission should Be granted to use this feature, would you like to go to app settings to give camera permission?'),
-        ),
+      permissionDialog(
+        'Camera Permission',
+        const Text(
+            'Camera permission should Be granted to use this feature, would you like to go to app settings to give camera permission?'),
+        context,
       );
       return false;
     }
@@ -56,24 +45,13 @@ class PermissionHandlerService implements PermissionService {
     if (!context.mounted) return false;
 
     if (photosPermissionStatus != PermissionStatus.granted) {
-      await showDialog(
-        context: context,
-        builder: (context) => AlertDialog.adaptive(
-          actions: [
-            TextButton(
-              onPressed: () {
-                openAppSettings();
-              },
-              child: const Text(
-                'Yes',
-              ),
-            ),
-          ],
-          title: const Text('Photos Permission'),
-          content: const Text(
-              'Photos permission should Be granted to use this feature, would you like to go to app settings to give photos permission?'),
-        ),
+      permissionDialog(
+        'Photos Permission',
+        const Text(
+            'Photos permission should Be granted to use this feature, would you like to go to app settings to give photos permission?'),
+        context,
       );
+
       return false;
     }
     return true;
