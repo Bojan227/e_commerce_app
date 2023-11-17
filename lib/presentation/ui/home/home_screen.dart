@@ -1,6 +1,7 @@
 import 'package:ecommerce_app/core/theme/color_palette.dart';
 import 'package:ecommerce_app/core/theme/main_config.dart';
 import 'package:ecommerce_app/presentation/blocs/rooms/rooms_bloc.dart';
+import 'package:ecommerce_app/presentation/blocs/search/search_bloc.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/app_bar.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/category_list.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/stories_list.dart';
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                       SearchBarWidget(
                         onSearch: (searchQuery) {
                           context.read<RoomsBloc>().add(
-                                GetRooms(
+                                GetSearchResults(
                                   searchQuery: searchQuery,
                                 ),
                               );

@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/presentation/blocs/rooms/rooms_bloc.dart';
+import 'package:ecommerce_app/presentation/blocs/search/search_bloc.dart';
 import 'package:ecommerce_app/presentation/ui/home/widgets/category_item.dart';
 import 'package:ecommerce_app/presentation/ui/widgets/column_with_spacing.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,10 @@ class CategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RoomsBloc, RoomsState>(
+    return BlocBuilder<RoomsBloc, SearchState>(
       builder: (context, state) {
-        if (state is RoomsLoaded) {
-          if (state.rooms.isEmpty) {
+        if (state is SearchLoaded) {
+          if (state.searchResults.isEmpty) {
             return const Center(
               child: Text('No rooms to show'),
             );
@@ -23,22 +24,22 @@ class CategoryList extends StatelessWidget {
               hasLeadingSpace: true,
               spacing: 16,
               children: List.generate(
-                state.rooms.length,
+                state.searchResults.length,
                 (index) => CategoryItem(
-                  label: state.rooms[index].name,
-                  image: state.rooms[index].image,
+                  label: state.searchResults[index].name,
+                  image: state.searchResults[index].image,
                 ),
               ),
             ),
           );
         }
 
-        if (state is RoomsLoading) {
+        if (state is SearchLoading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
-        if (state is RoomsFailure) {
+        if (state is SearchFailure) {
           return const Center(
             child: Text('Please try again later!'),
           );
