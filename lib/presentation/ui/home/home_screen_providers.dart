@@ -13,8 +13,8 @@ class HomeScreenProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => roomsBloc..add(const GetRooms(searchQuery: '')),
+    return BlocProvider.value(
+      value: roomsBloc..add(const GetRooms(searchQuery: '')),
       child: const HomeScreen(),
     );
   }
